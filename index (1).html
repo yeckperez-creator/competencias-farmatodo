@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dcedf7">
+<meta name="description" content="Competencias de los cargos de Operaciones · Apoyo de Farmatodo: nivel por cargo y cómo aplicar cada competencia.">
+<title>Competencias por Cargo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%230083be%22/%3E%3Cg%20transform%3D%22translate%2814%2014%29%20scale%281.5%29%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.83%202.18a2%202%200%200%200-1.66%200L2.6%206.08a1%201%200%200%200%200%201.83l8.58%203.91a2%202%200%200%200%201.66%200l8.58-3.9a1%201%200%200%200%200-1.83z%22/%3E%20%3Cpath%20d%3D%22M2%2012a1%201%200%200%200%20.58.91l8.6%203.91a2%202%200%200%200%201.65%200l8.58-3.9A1%201%200%200%200%2022%2012%22/%3E%20%3Cpath%20d%3D%22M2%2017a1%201%200%200%200%20.58.91l8.6%203.91a2%202%200%200%200%201.65%200l8.58-3.9A1%201%200%200%200%2022%2017%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: una columna para teléfono. Franja pastel arriba con el título; debajo, cuatro tarjetas pastel
+   (una por cargo) que se abren en el mismo lugar. Cada competencia es una tarjeta blanca con su ícono que se despliega.
+   Paleta tomada del logo de Farmatodo (azul Prusia y cerúleo) llevada a tonos pastel. */
+:root{
+  color-scheme:light;
+  --bg:#f3f8fc; --surface:#ffffff; --band:#dcedf7; --line:#d5e5ef;
+  --navy:#004473; --ink:#17395a; --muted:#587189; --brand:#0083be;
+  --amber-bg:#fff0c4; --amber-ink:#7a5200;
+  --k:#0083be; --p:#d6ecf8; --p2:#eef7fc; --d:#00527a;
+  --display:"Nunito","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --t:.32s;
+}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol{margin:0;padding:0}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+:focus-visible{outline:2.5px solid var(--k);outline-offset:3px;border-radius:10px}
+svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.note{font-size:.875rem;line-height:1.45;color:var(--muted)}
+
+/* franja de título */
+.band{position:relative;overflow:hidden;background:var(--band);border-radius:0 0 32px 32px}
+.band::before,.band::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.band::before{width:13rem;height:13rem;right:-4rem;top:-5rem;background:#c9e4f3}
+.band::after{width:7rem;height:7rem;right:-2rem;bottom:-3rem;background:#e9e4fb}
+.band-in{position:relative;z-index:1;max-width:36rem;margin-inline:auto;display:flex;flex-direction:column;gap:.55rem;padding-block:1.5rem 1.7rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{display:inline-flex;align-self:flex-start;align-items:center;gap:.45rem;padding:.35rem .7rem .35rem .4rem;border-radius:999px;background:var(--surface);color:var(--brand);font:700 .78rem/1 var(--body);letter-spacing:.04em}
+.eyebrow svg{width:1.05rem;height:1.05rem}
+.band h1{font:800 2.35rem/1.02 var(--display);color:var(--navy);letter-spacing:-.01em;text-wrap:balance;max-width:16ch}
+.band p{color:var(--ink);font-size:1.05rem;line-height:1.4;max-width:30ch}
+
+.wrap{max-width:36rem;margin-inline:auto;padding-block:1.2rem 2.5rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* tarjetas de cargo */
+.cargos{display:flex;flex-direction:column;gap:.9rem}
+.cargo{border-radius:28px;background:var(--p);border:2px solid transparent;overflow:hidden;scroll-margin-top:12px;transition:border-color var(--t),box-shadow var(--t)}
+.cargo.is-open{border-color:var(--k);box-shadow:0 10px 28px -16px var(--k)}
+.head{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;padding:1.1rem 1.1rem 1.1rem 1rem;min-height:7rem;color:var(--d)}
+.head:active{transform:scale(.99)}
+.ic{width:3.7rem;height:3.7rem;border-radius:20px;background:var(--surface);color:var(--k);display:grid;place-items:center;flex:none;box-shadow:0 4px 12px -8px var(--d)}
+.ic svg{width:1.85rem;height:1.85rem;stroke-width:1.9}
+.head-tx{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.head-n{font:800 1.6rem/1.05 var(--display);text-wrap:balance}
+.head-s{font-size:.88rem;line-height:1.3;opacity:.82}
+.head-c{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.55rem .55rem .45rem;border-radius:16px;background:var(--surface);min-width:3.5rem;font-variant-numeric:tabular-nums}
+.head-c b{font:800 1.6rem/.9 var(--display);color:var(--k)}
+.head-c small{font:700 .56rem/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.chev{width:.55rem;height:.55rem;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg);margin-top:-.15rem;transition:transform var(--t)}
+.head-c .chev{color:var(--k)}
+[aria-expanded="true"] .chev{transform:rotate(225deg);margin-top:.2rem}
+
+/* panel que se despliega */
+.panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows var(--t) ease,visibility 0s var(--t)}
+.panel.is-open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows var(--t) ease,visibility 0s}
+.panel-in{min-height:0;overflow:hidden}
+.cbody{display:flex;flex-direction:column;gap:.6rem;padding:.2rem .7rem .9rem}
+.legend{padding:.1rem .35rem .3rem;color:var(--d);opacity:.85}
+.list{display:flex;flex-direction:column;gap:.55rem}
+
+/* competencias */
+.comp{border-radius:20px;background:var(--surface);border:1.5px solid transparent;transition:border-color var(--t)}
+.comp.is-open{border-color:var(--k)}
+.crow{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.8rem;padding:.8rem .8rem .8rem .75rem;min-height:4.5rem}
+.cic{width:2.75rem;height:2.75rem;border-radius:50%;background:var(--p);color:var(--k);display:grid;place-items:center;flex:none;transition:background-color var(--t),color var(--t)}
+.cic svg{width:1.35rem;height:1.35rem}
+.comp.is-open .cic{background:var(--k);color:var(--surface)}
+.comp-tx{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.comp-n{font:800 1.08rem/1.2 var(--display);color:var(--navy);text-wrap:balance}
+.comp-m{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem}
+.pips{display:inline-flex;gap:3px;flex:none}
+.pips i{width:.55rem;height:.55rem;border-radius:50%;background:var(--p)}
+.pips .on{background:var(--k)}
+.crit{font:700 .66rem/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--amber-ink);background:var(--amber-bg);border-radius:999px;padding:.28rem .5rem}
+.lv{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:2.9rem;padding:.4rem .3rem;border-radius:14px;background:var(--p2);font-variant-numeric:tabular-nums}
+.lv small{font:700 .54rem/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.lv b{font:800 1.45rem/.9 var(--display);color:var(--k)}
+.lv .chev{width:.45rem;height:.45rem;border-width:2px;color:var(--muted)}
+.dbody{display:flex;flex-direction:column;gap:1rem;padding:.1rem 1rem 1.1rem}
+.blk{display:flex;flex-direction:column;gap:.4rem}
+.blk h3{font:700 .74rem/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.lvt{font:800 1rem/1.3 var(--display);color:var(--navy)}
+.bul{display:flex;flex-direction:column;gap:.45rem}
+.bul li{position:relative;padding-left:1.15rem;line-height:1.45}
+.bul li::before{content:"";position:absolute;left:.1rem;top:.55em;width:.5rem;height:.5rem;border-radius:50%;background:var(--p);box-shadow:inset 0 0 0 2px var(--k)}
+.prev{display:flex;flex-direction:column;gap:.45rem}
+.sub-l{border-radius:14px;background:var(--p2)}
+.sub-l > summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.7rem .85rem;font-size:.95rem;line-height:1.3}
+.sub-l > summary b{color:var(--d)}
+.sub-l > summary .chev{width:.45rem;height:.45rem;border-width:2px;color:var(--muted)}
+.sub-l[open] > summary .chev{transform:rotate(225deg);margin-top:.2rem}
+.sub-l .bul{padding:0 .85rem .85rem;color:var(--muted)}
+.close{align-self:center;display:inline-flex;align-items:center;gap:.5rem;margin-top:.2rem;padding:.7rem 1.15rem;border-radius:999px;background:var(--surface);font:800 .95rem/1 var(--display);color:var(--d)}
+.close .chev{transform:rotate(225deg);margin-top:.2rem;width:.45rem;height:.45rem;border-width:2px}
+
+@media (prefers-reduced-motion:no-preference){
+  .cargo{animation:rise .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
+  .cargo.is-open .comp{animation:rise .38s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--j) * 35ms + 80ms)}
+  .head,.ic{transition:transform .15s ease}
+}
+@media (prefers-reduced-motion:reduce){ :root{--t:0s} }
+.no-anim *{transition:none!important;animation:none!important}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="band-in">
+    <p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>Operaciones · Apoyo</p>
+    <h1>Competencias por cargo</h1>
+    <p>Toca un cargo para ver sus competencias y el nivel que debe tener en cada una.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cargos" id="cargos"></div>
+</main>
+
+<script>
+(function(){
+'use strict';
+
+var COMP_ORDER = ["equipo","tecnico","desarrollo","direccion","energia","excelencia","liderazgo","madurez","resultados","cliente","orden","seguimiento","sensibilidad","urgencia"];
+var COMPS = {"equipo":{"n":"Conciencia de Equipo","q":"Es la disposición a colaborar con otros y trabajar juntos hacia un objetivo común, en vez de hacerlo de forma individual o competitiva.","niv":[{"t":"Coopera con el equipo","c":["Participa activamente y con gusto en el equipo.","Dale importancia a los objetivos del equipo y responde bien cuando te piden ayuda.","Mantén informados a los demás. Si te enteras de una promoción nueva, compártela con todos."]},{"t":"Valora al equipo y ofrece su experiencia","c":["Ofrece ayuda en lo que tienes experiencia.","Intercambia ideas e información con frecuencia.","Mantente abierto a aprender de tus compañeros."]},{"t":"Anima al equipo","c":["Motiva a tus compañeros haciéndoles sentir importantes.","Actúa pensando en el beneficio del equipo.","Quédate con tu equipo en las situaciones difíciles."]},{"t":"Crea espíritu de equipo","c":["Trabaja para que haya un clima de equipo y cooperación.","Defiende la reputación y la identidad del equipo frente a terceros."]}]},"tecnico":{"n":"Conocimiento Técnico","q":"Es mantenerte actualizado y poner en práctica tus conocimientos técnicos para asesorar al cliente o implementar soluciones que cumplan los estándares de Farmatodo.","niv":[{"t":"Se mantiene actualizado en su campo de conocimiento","c":["Lee, investiga y pregunta para estar al día en novedades del sector farmacéutico, retail y tecnológico.","Ubica la información sobre cambios legales y nuevas tecnologías para cumplir a tiempo.","Apóyate en laboratorios, proveedores e internet para conocer nuevos productos, presentaciones y soluciones."]},{"t":"Utiliza sus conocimientos","c":["Aplica lo que sabes para dar asesoría farmacéutica o soluciones tecnológicas a partir de lo que el cliente necesita.","Responde como experto las preguntas de tus clientes internos y externos."]},{"t":"Brinda apoyo técnico a su equipo","c":["Comparte tu experiencia y conocimiento con el equipo para que pueda dar la asesoría esperada.","Sé un referente: que los demás te reconozcan como experto en tu campo."]},{"t":"Da sugerencias con foco en resultados","c":["Da sugerencias fundamentadas en tu conocimiento técnico y del negocio para lograr mejores resultados."]}]},"desarrollo":{"n":"Desarrollo de Otros","q":"Es el interés genuino por la formación y el desarrollo, tanto el propio como el de otras personas, según las necesidades de cada quien y de Farmatodo.","niv":[{"t":"Se adueña de su desarrollo personal «en el día a día»","c":["Pregunta, pide retroalimentación y busca apoyo en compañeros o supervisores para seguir creciendo.","Busca contar con un Plan de Desarrollo.","Identifica lo que frena tu desempeño o tu motivación y trabaja para mejorarlo."]},{"t":"Da instrucciones y apoya al desarrollo de otros","c":["Dedica tiempo a dar instrucciones detalladas sobre procesos y tareas, y asegúrate de que quedaron claras.","Da apoyo práctico para que otros aprendan: simulaciones, consejo experto, información, recursos, tiempo."]},{"t":"Anima a desarrollarse y retroalimenta","c":["Motiva a tus colaboradores a asumir nuevas responsabilidades y a exponerse a situaciones nuevas.","Indaga sus necesidades de formación y motívalos a tomar acciones concretas, como tareas especiales.","Da retroalimentación constructiva, uno a uno, sobre resultados y conductas."]},{"t":"Fomenta el aprendizaje y la formación a largo plazo","c":["Promueve que las personas resuelvan los problemas por sí mismas en vez de darles la respuesta.","Trabaja con las áreas responsables para actualizar o crear procesos de desarrollo.","Monitorea el progreso de tus colaboradores y asegúrate de que asistan a sus adiestramientos."]},{"t":"Genera capacidad organizacional","c":["Promueve transferencias, intercambios entre áreas o países y asignaciones a proyectos con fines de desarrollo.","Crea un clima que propicie el aprendizaje.","Identifica el potencial y desarrolla a quienes pueden relevarte en tu cargo."]}]},"direccion":{"n":"Dirección de Otros","q":"Es la habilidad de orientar el desempeño de tu equipo o de otras personas, como pares y proveedores: fijar estándares, hacer seguimiento y dar retroalimentación.","niv":[{"t":"Explica detalladamente las expectativas de desempeño","c":["Comunica a las personas lo que se espera de ellas y verifica que quedó claro.","Asegúrate de que entiendan los parámetros de la tarea y las consecuencias de no cumplirlos."]},{"t":"Da retroalimentación oportuna","c":["Dedica tiempo a dar retroalimentación balanceada y abre la conversación para entender las razones de los resultados.","Haz seguimiento al desempeño comparándolo con los objetivos y actúa a tiempo si prevés problemas."]},{"t":"Responsabiliza a la gente por su desempeño","c":["Haz cumplir las normas y confronta de manera asertiva los problemas de desempeño.","Vincula la conducta de tus colaboradores con los indicadores del área para que asuman la responsabilidad de los resultados."]},{"t":"Promueve una cultura orientada al desempeño superior","c":["Toma decisiones concretas ante problemas de desempeño recurrentes: sanciones formales, movimientos internos, desincorporaciones.","Establece estándares nuevos y retadores, con mecanismos de apoyo para alcanzarlos."]}]},"energia":{"n":"Energía","q":"Es mantener un nivel de actividad alto y constante, al ritmo del día a día, con impulso y entusiasmo, sin perder el foco en los resultados.","niv":[{"t":"Resiste con energía","c":["Interésate por trabajos con mucha actividad física y mental.","Mantente dispuesto a trabajar tiempo extra si la situación lo amerita.","Muestra entusiasmo durante todo el día, en lo que dices y en tu lenguaje corporal."]},{"t":"Mantiene el ritmo de trabajo","c":["Mantén un ritmo constante sin que la presión del día afecte tu efectividad.","Sostén el ritmo aunque te asignen responsabilidades adicionales.","Pasa de una actividad a otra con rapidez y reponte pronto de los contratiempos."]},{"t":"Refleja entusiasmo","c":["Demuestra energía, entusiasmo y pasión por lo que haces.","Mantén tu nivel con personas y situaciones distintas que cambian en poco tiempo.","Ante cambios súbitos u obstáculos, sigue atento y persiste hasta terminar la tarea."]},{"t":"Dirige la energía","c":["Promueve entusiasmo, acción y pasión por el trabajo en tu equipo.","Transmite fuerza e ímpetu en todas tus acciones."]}]},"excelencia":{"n":"Excelencia Operativa","q":"Es el interés por optimizar siempre los procesos para lograr más eficiencia y productividad: identificar mejoras, analizarlas y llevarlas a cabo.","niv":[{"t":"Relaciona las responsabilidades de su trabajo con el proceso y las mejores prácticas organizacionales","c":["Mientras trabajas, pregúntate si esa es la mejor manera de hacerlo, si hay retrabajo o pasos innecesarios.","Infórmate sobre la mejor forma de hacer tu trabajo en Farmatodo y aprovecha lo que ya funcionó antes."]},{"t":"Cuestiona el desempeño actual","c":["Cuida los costos y la eficiencia: elimina el retrabajo y usa los recursos de forma racional.","Cuestiona de forma positiva los procesos de tu área: su razón de ser, su valor y su impacto en otras áreas."]},{"t":"Identifica áreas de mejora y/o cambios","c":["Analiza los procesos y visualiza los cambios específicos que necesitan.","Haz un análisis costo-beneficio antes de introducir mejoras.","Evalúa cómo impactaría la mejora a otras áreas."]},{"t":"Mejora continuamente los procesos a su cargo","c":["Implementa mejoras con planes de acción, objetivos e indicadores medibles.","Abre espacios con los equipos para generar ideas de mejora."]},{"t":"Promueve el mejoramiento continuo en la Organización","c":["Evalúa y documenta los resultados de las mejoras implementadas.","Involucra y estimula a las personas para que propongan ideas de mejora.","Introduce mejoras tomando como referencia buenas prácticas del mercado global."]}]},"liderazgo":{"n":"Liderazgo","q":"Es la capacidad de inspirar a otros a alcanzar altos estándares de desempeño, creando un clima de energía y compromiso, desde una posición formal o informal de autoridad.","niv":[{"t":"Asume un rol de liderazgo, aunque no sea su rol formal","c":["Asume el rol de líder en el equipo para guiarlo o movilizarlo frente a un problema, aunque no tengas el cargo.","Asegúrate de que el grupo tenga la información que necesita y explica las razones de las decisiones."]},{"t":"Promueve la efectividad del equipo","c":["Asegura las condiciones para que el equipo logre sus resultados: recursos, equipos de seguridad e higiene, entrenamientos.","Atiende el clima del equipo y aborda lo que lo afecta."]},{"t":"Genera confianza y cercanía con la gente","c":["Acércate a tu personal y abre espacios para escuchar sus inquietudes. Sé un líder de puertas abiertas.","Sé justo: aplica las normas y exigencias de forma equitativa.","Involúcrate en las situaciones difíciles y ayuda hombro a hombro."]},{"t":"Es un modelo a seguir","c":["Sé coherente entre lo que exiges y lo que haces.","Sé modelo en el cumplimiento de los valores de Farmatodo y asegura las normas de convivencia.","Respeta la jerarquía: que cada supervisor resuelva según su nivel de autoridad.","Reconoce los logros individuales y grupales y relaciónalos con los resultados."]},{"t":"Promueve una visión común","c":["Comunícate con otros líderes para alinear mensajes y resultados esperados.","Comunica con claridad los objetivos de la Organización y vincúlalos con el trabajo diario de cada colaborador."]},{"t":"Se posiciona como líder","c":["Transmite en tus mensajes una energía que moviliza y genera compromiso.","Asume los compromisos, retos y situaciones complejas con madurez emocional."]}]},"madurez":{"n":"Madurez Emocional","q":"Es tener confianza en tus capacidades y puntos de vista, y asumir con seguridad y aplomo las situaciones, retos, cambios y nuevas responsabilidades del trabajo.","niv":[{"t":"Actúa con autonomía","c":["Toma las decisiones que corresponden a tu cargo sin consultar cada una y hazte responsable de ellas.","Atiende al cliente con seguridad, mostrando que conoces tu área."]},{"t":"Demuestra seguridad en sus capacidades","c":["Muéstrate capaz de sacar adelante lo que te propones.","Expresa tus opiniones y haz tu trabajo con seguridad en lo que sabes.","Apóyate en lo aprendido en experiencias pasadas para decidir.","Recibe los reclamos de los clientes con seguridad y canalízalos."]},{"t":"Asume retos con seguridad y aplomo","c":["Asume con seguridad los distintos roles que te toquen.","Acepta responsabilidades adicionales aunque no las domines del todo, con confianza y control emocional.","Apóyate en los mejores recursos que tengas para resolver cada reto."]},{"t":"Se mantiene calmado y seguro en situaciones de alta presión","c":["En conversaciones difíciles, regula tus emociones y sigue actuando con calma y asertividad.","Responde de forma constructiva pese al estrés de la operación o a una crisis.","En situaciones de alto impacto, mantén la apertura y céntrate en resolver."]}]},"resultados":{"n":"Orientación a Resultados Excelentes","q":"Es el interés permanente por trabajar bien y alcanzar o superar los estándares de excelencia, propios o de la Organización.","niv":[{"t":"Desempeña muy bien su trabajo","c":["Busca métodos o herramientas para hacer tu trabajo de forma eficiente.","Cumple los compromisos que haces con todas las personas con las que trabajas."]},{"t":"Monitorea su desempeño y busca mejorarlo","c":["Mide tus resultados contra los objetivos, tiempos, calidad y metas esperadas.","Pide retroalimentación sobre tu desempeño para incorporar cambios.","Ponte metas profesionales para aumentar tus capacidades."]},{"t":"Establece metas retadoras y trabaja para alcanzarlas","c":["Define tus objetivos, prioridades y estándares según lo que debe alcanzar el área.","Haz cambios específicos para mejorar tu desempeño y el de tu área.","Haz seguimiento a los objetivos y corrige las desviaciones.","Compara el desempeño de tu área con el de otras empresas para superarte."]},{"t":"Toma riesgos calculados para hacer crecer el negocio","c":["Compromete recursos y tiempo para lograr mejoras, intentar algo nuevo o alcanzar un objetivo difícil, mitigando los riesgos.","Persigue retos que beneficien al negocio a largo plazo.","Logra mejoras significativas en áreas del negocio con bajo desempeño."]}]},"cliente":{"n":"Orientación al Cliente","q":"Es el deseo genuino de satisfacer las necesidades de los clientes internos y externos, demostrando las conductas de servicio de Farmatodo.","niv":[{"t":"Responde de manera efectiva al cliente","c":["Trata al cliente interno y externo de forma educada y amable.","Responde rápido a lo que te piden y oriéntalo hacia una solución disponible.","Ante una queja o una solicitud particular, da una respuesta clara y ágil."]},{"t":"Se compromete personalmente con el cliente","c":["Aclara expectativas, prioriza tu trabajo para dar el mejor servicio y comprométete con tiempos realistas.","Cumple lo que le prometes al cliente.","Dale respuesta aunque atenderlo no sea tu responsabilidad directa.","Haz preguntas para conocer a fondo lo que necesita."]},{"t":"Se compromete con perspectiva de largo plazo","c":["Mantente totalmente disponible para el cliente, sobre todo en sus momentos críticos.","Asume los problemas del cliente como propios y ve más allá del servicio normal.","Mantén una comunicación fluida para identificar sus necesidades de largo plazo y anticiparte a ellas.","Construye una relación de confianza con el cliente interno."]},{"t":"Promueve la orientación al cliente","c":["Comunica la importancia del cliente como centro del negocio y vincula las tareas del día a día con su impacto en él.","Modela y promueve en el equipo las conductas de una excelente atención.","Apoya las iniciativas de servicio al cliente aunque impliquen recursos, dinero o tiempo."]}]},"orden":{"n":"Preocupación por el Orden y el Detalle","q":"Es reducir al mínimo los errores revisando y controlando el trabajo, sobre todo en lo operativo: planogramas, etiquetado, manejo y control de inventario.","niv":[{"t":"Muestra preocupación por el detalle","c":["Trabaja con normas, objetivos y procedimientos claros, de ser posible por escrito.","Sé cuidadoso con los datos y las cifras.","Mantén orden y limpieza en tu espacio de trabajo y en tu imagen personal."]},{"t":"Comprueba su propio trabajo","c":["Revisa con cuidado la exactitud de la información que recibes y de tu propio trabajo.","Recorre el piso de venta y revisa los detalles: planograma asignado, limpieza, habladores, etiquetado.","Cumple la planificación dada y lleva tu carpeta completa, ordenada y al día."]},{"t":"Verifica la calidad del trabajo de los demás","c":["Controla la calidad del trabajo de tu equipo: que se sigan los procedimientos y se alcancen los estándares.","Sé metódico y haz seguimiento al trabajo propio y al de los demás."]},{"t":"Sistematiza la verificación del detalle","c":["Establece controles de calidad y lleva registro de errores o fallas.","Haz seguimiento a la información: detecta datos erróneos o ausentes y complétalos.","Busca mejorar el orden de los sistemas para reducir el margen de error."]}]},"seguimiento":{"n":"Seguimiento y Control","q":"Es hacer seguimiento estrecho y continuo a los detalles administrativos y operativos para que la gestión salga bien y a tiempo, detectando desviaciones y anticipando problemas.","niv":[{"t":"Es cuidadoso con los detalles","c":["Cuida los detalles de cada actividad y proceso para que cumplan los estándares.","Verifica dos veces la información antes de dársela a otro.","Registra los datos o eventos que ayudan a mejorar un proceso o a resolver un problema."]},{"t":"Hace seguimiento","c":["Haz seguimiento teniendo presente lo que le cuesta al negocio un problema que no se resuelve a tiempo o un acuerdo que no se cumple."]},{"t":"Verifica la corrección de problemas identificados","c":["Crea tus propios cuadros o listas de control para registrar los problemas y garantizar que se solucionen según lo conversado.","Revisa con frecuencia el avance de lo acordado frente a objetivos y plazos, y suministra las herramientas necesarias."]},{"t":"Promueve y comunica la importancia del cumplimiento de estándares","c":["Comunica y exige a tu equipo la atención a los detalles, la limpieza y el orden, y muéstrale su impacto en el resto de la cadena.","Modela las conductas de seguimiento y control: exígete y exige a otros cumplir las normas y procesos."]}]},"sensibilidad":{"n":"Sensibilidad Interpersonal","q":"Es la capacidad de interpretar y entender los pensamientos, la conducta, los sentimientos y las preocupaciones de las personas, los expresen o no, y actuar de forma asertiva según eso.","niv":[{"t":"Reconoce razones y emociones","c":["Dedica tiempo a escuchar y comprender a las personas: sus valores, preocupaciones, expectativas e intereses.","Identifica su estado emocional por el lenguaje corporal, la expresión, el tono de voz y lo que dicen."]},{"t":"Entiende los significados","c":["Concentra tu atención en entender el estado emocional y el contenido de lo que la persona expresa, con palabras y con el cuerpo.","Toma las reacciones de la gente como un conjunto de razones y emociones."]},{"t":"Identifica las razones de las conductas","c":["Entiende por qué las personas actúan de cierta manera, aunque no lo digan.","Sé cuidadoso al hacer juicios de valor sobre los sentimientos de los demás."]},{"t":"Comprende lo que no está a simple vista","c":["Comprende las razones de fondo que explican los problemas, sentimientos y comportamientos de los demás.","Haz un esfuerzo genuino por ponerte en los zapatos del otro.","Reconoce las diferencias entre las personas y relaciónate con cada una según estas."]}]},"urgencia":{"n":"Sentido de Urgencia","q":"Es actuar, acatar instrucciones y adueñarse de una situación de forma efectiva, rápida y oportuna.","niv":[{"t":"Actúa rápidamente ante una situación","c":["Actúa rápido y con decisión, o sigue la instrucción, para resolver según tu autonomía y alcance.","Si ves un problema o algo fuera de lo normal, avisa de inmediato a tu supervisor o al responsable del área.","Sugiere una posible solución."]},{"t":"Resuelve con efectividad","c":["Distingue lo importante de lo urgente para el negocio y organiza tus actividades según eso.","Atiende varias situaciones a la vez con agilidad."]},{"t":"Hace seguimiento a las soluciones propuestas","c":["Después de una situación crítica, haz seguimiento hasta la solución final para evitar nuevos imprevistos.","Insiste, moviliza recursos y canaliza con las áreas necesarias hasta que se resuelva, aunque no sea tu responsabilidad directa."]},{"t":"Se prepara para posibles eventualidades","c":["Formula y ejecuta planes para mejorar la velocidad de respuesta y atención.","Anticípate con planes de contingencia, considerando los indicadores y las situaciones externas."]},{"t":"Promueve el sentido de urgencia","c":["Promueve un ambiente de dinamismo que valore responder a tiempo para resolver lo que afecta el desempeño."]}]}};
+var CRIT = ["desarrollo","direccion","excelencia","liderazgo","resultados","cliente","seguimiento","urgencia"];
+var CARGOS = [{"id":"apv","nombre":"APV","sub":"Asistente de Piso de Venta","corto":"APV","icon":"shopping-basket","c":{"k":"#0083be","p":"#d6ecf8","p2":"#eef7fc","d":"#00527a"},"niv":{"equipo":3,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"madurez":2,"resultados":1,"cliente":1,"orden":2,"seguimiento":1,"urgencia":1}},{"id":"apv-senior","nombre":"APV Senior","sub":"Asistente de Piso de Venta Senior","corto":"APV Senior","icon":"award","c":{"k":"#0f8f78","p":"#d3f0e8","p2":"#ecf8f4","d":"#0b5c4d"},"niv":{"desarrollo":2,"direccion":1,"energia":4,"excelencia":1,"liderazgo":1,"madurez":3,"resultados":2,"cliente":2,"orden":3,"seguimiento":2,"urgencia":2}},{"id":"asistente-farmacia","nombre":"Asistente de Farmacia","sub":"","corto":"Asistente de Farmacia","icon":"pill","c":{"k":"#6a58cf","p":"#e6e2fa","p2":"#f4f2fd","d":"#46399a"},"niv":{"equipo":3,"tecnico":2,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"liderazgo":1,"madurez":2,"resultados":1,"cliente":2,"orden":2,"seguimiento":1,"sensibilidad":2,"urgencia":1}},{"id":"control-perdida","nombre":"Control de Pérdida","sub":"Asistente de Control de Pérdida y Servicios","corto":"Control de Pérdida","icon":"shield-check","c":{"k":"#cc5a35","p":"#fde2d7","p2":"#fef2ec","d":"#8f3d1e"},"niv":{"equipo":3,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"madurez":3,"resultados":1,"cliente":2,"orden":2,"seguimiento":1,"urgencia":2}}];
+/* Íconos: Lucide (lucide.dev), licencia ISC. */
+var ICONS = {"equipo":"<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/> <path d=\"M16 3.128a4 4 0 0 1 0 7.744\"/> <path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/> <circle cx=\"9\" cy=\"7\" r=\"4\"/>","tecnico":"<path d=\"M12 5v16\"/> <path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\"/>","desarrollo":"<path d=\"M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3\"/> <path d=\"M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4\"/> <path d=\"M5 21h14\"/>","direccion":"<path d=\"M12 13v8\"/> <path d=\"M12 3v3\"/> <path d=\"M2.354 10.354a1.207 1.207 0 0 1 0-1.708l2.06-2.06A2 2 0 0 1 5.828 6h12.344a2 2 0 0 1 1.414.586l2.06 2.06a1.207 1.207 0 0 1 0 1.708l-2.06 2.06a2 2 0 0 1-1.414.586H5.828a2 2 0 0 1-1.414-.586z\"/>","energia":"<path d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"/>","excelencia":"<path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"/> <circle cx=\"12\" cy=\"12\" r=\"3\"/>","liderazgo":"<path d=\"M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528\"/>","madurez":"<path d=\"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5\"/>","resultados":"<circle cx=\"12\" cy=\"12\" r=\"10\"/> <circle cx=\"12\" cy=\"12\" r=\"6\"/> <circle cx=\"12\" cy=\"12\" r=\"2\"/>","cliente":"<path d=\"M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762\"/>","orden":"<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"/> <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/> <path d=\"m9 14 2 2 4-4\"/>","seguimiento":"<path d=\"m8 11 2 2 4-4\"/> <circle cx=\"11\" cy=\"11\" r=\"8\"/> <path d=\"m21 21-4.3-4.3\"/>","sensibilidad":"<path d=\"M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0\"/> <path d=\"M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4\"/>","urgencia":"<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"/> <line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\"/> <circle cx=\"12\" cy=\"14\" r=\"8\"/>","shopping-basket":"<path d=\"m15 11-1 9\"/> <path d=\"m19 11-4-7\"/> <path d=\"M2 11h20\"/> <path d=\"m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4\"/> <path d=\"M4.5 15.5h15\"/> <path d=\"m5 11 4-7\"/> <path d=\"m9 11 1 9\"/>","award":"<path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\"/> <circle cx=\"12\" cy=\"8\" r=\"6\"/>","pill":"<path d=\"m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z\"/> <path d=\"m8.5 8.5 7 7\"/>","shield-check":"<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/> <path d=\"m9 12 2 2 4-4\"/>"};
+
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s).replace(/[&<>"']/g, function(ch){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
+function lis(a){ return a.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join(''); }
+function icon(name){ return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || '') + '</svg>'; }
+function pips(n, max){
+  var h = '';
+  for (var i = 1; i <= max; i++) h += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
+  return '<span class="pips" aria-hidden="true">' + h + '</span>';
+}
+
+function compHTML(k, cid, j){
+  var c = COMPS[cid], n = k.niv[cid], max = c.niv.length, lv = c.niv[n - 1], crit = CRIT.indexOf(cid) >= 0, prev = '';
+  var pid = 'cd-' + k.id + '-' + cid;
+  for (var i = 1; i < n; i++) {
+    prev += '<details class="sub-l"><summary><span><b>Nivel ' + i + '.</b> ' + esc(c.niv[i - 1].t) + '</span><span class="chev" aria-hidden="true"></span></summary><ul class="bul">' + lis(c.niv[i - 1].c) + '</ul></details>';
+  }
+  return '<li class="comp" style="--j:' + j + '"><button type="button" class="crow" id="b-' + pid + '" aria-expanded="false" aria-controls="' + pid + '">' +
+    '<span class="cic">' + icon(cid) + '</span>' +
+    '<span class="comp-tx"><span class="comp-n">' + esc(c.n) + '</span><span class="comp-m">' + pips(n, max) + (crit ? '<span class="crit">Crítica</span>' : '') + '</span></span>' +
+    '<span class="lv"><small>Nivel</small><b>' + n + '</b><small>de ' + max + '</small></span></button>' +
+    '<div class="panel" id="' + pid + '" role="region" aria-labelledby="b-' + pid + '"><div class="panel-in"><div class="dbody">' +
+    '<div class="blk"><h3>Qué es</h3><p>' + esc(c.q) + '</p></div>' +
+    '<div class="blk"><h3>Cómo aplicarla en el nivel ' + n + '</h3><p class="lvt">' + esc(lv.t) + '</p><ul class="bul">' + lis(lv.c) + '</ul></div>' +
+    (prev ? '<div class="blk"><h3>También incluye los niveles anteriores</h3><div class="prev">' + prev + '</div></div>' : '') +
+    '</div></div></div></li>';
+}
+
+function render(){
+  $('#cargos').innerHTML = CARGOS.map(function(k, i){
+    var ids = COMP_ORDER.filter(function(c){ return k.niv[c]; });
+    var nc = ids.filter(function(c){ return CRIT.indexOf(c) >= 0; }).length;
+    var col = '--k:' + k.c.k + ';--p:' + k.c.p + ';--p2:' + k.c.p2 + ';--d:' + k.c.d;
+    return '<section class="cargo" id="k-' + k.id + '" style="--i:' + i + ';' + col + '">' +
+      '<h2><button type="button" class="head" id="h-' + k.id + '" data-cargo="' + k.id + '" aria-expanded="false" aria-controls="p-' + k.id + '">' +
+      '<span class="ic">' + icon(k.icon) + '</span>' +
+      '<span class="head-tx"><span class="head-n">' + esc(k.nombre) + '</span>' + (k.sub ? '<span class="head-s">' + esc(k.sub) + '</span>' : '') + '</span>' +
+      '<span class="head-c"><b>' + ids.length + '</b><small>compet.</small><span class="chev" aria-hidden="true"></span></span></button></h2>' +
+      '<div class="panel" id="p-' + k.id + '" role="region" aria-labelledby="h-' + k.id + '"><div class="panel-in"><div class="cbody">' +
+      '<p class="note legend">' + ids.length + ' competencias, ' + nc + ' críticas para el área. El número es el nivel que debe tener este cargo. Toca una para ver qué es y cómo aplicarla.</p>' +
+      '<ul class="list">' + ids.map(function(cid, j){ return compHTML(k, cid, j); }).join('') + '</ul>' +
+      '<p class="note legend">Los niveles se suman: quien debe estar en el nivel 3 también cumple el 1 y el 2.</p>' +
+      '<button type="button" class="close" data-close="' + k.id + '"><span class="chev" aria-hidden="true"></span>Cerrar ' + esc(k.corto) + '</button>' +
+      '</div></div></div></section>';
+  }).join('');
+}
+
+var reduce = false;
+try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+var T = reduce ? 0 : 340;
+
+function setOpen(btn, panel, wrap, on){
+  btn.setAttribute('aria-expanded', String(on));
+  panel.classList.toggle('is-open', on);
+  wrap.classList.toggle('is-open', on);
+}
+function bringIntoView(el){
+  setTimeout(function(){
+    var r = el.getBoundingClientRect();
+    if (r.top < 0 || r.top > window.innerHeight * 0.45) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' });
+  }, T);
+}
+function setHash(id){
+  try { history.replaceState(null, '', id ? '#' + id : location.pathname + location.search); } catch (e) {}
+}
+function toggleCargo(id, force){
+  var sec = document.getElementById('k-' + id);
+  if (!sec) return;
+  var on = force != null ? force : !sec.classList.contains('is-open');
+  Array.prototype.forEach.call(document.querySelectorAll('.cargo.is-open'), function(o){
+    if (o !== sec) setOpen(o.querySelector('.head'), o.querySelector(':scope > .panel'), o, false);
+  });
+  setOpen(sec.querySelector('.head'), sec.querySelector(':scope > .panel'), sec, on);
+  setHash(on ? id : '');
+  bringIntoView(sec);
+}
+function toggleComp(btn){
+  var li = btn.closest('.comp'), on = btn.getAttribute('aria-expanded') !== 'true';
+  Array.prototype.forEach.call(li.parentNode.querySelectorAll('.comp.is-open'), function(o){
+    if (o !== li) setOpen(o.querySelector('.crow'), o.querySelector('.panel'), o, false);
+  });
+  setOpen(btn, li.querySelector('.panel'), li, on);
+  if (on) bringIntoView(li);
+}
+document.addEventListener('click', function(ev){
+  var t = ev.target.closest('.head, .crow, .close');
+  if (!t) return;
+  if (t.classList.contains('head')) toggleCargo(t.getAttribute('data-cargo'));
+  else if (t.classList.contains('crow')) toggleComp(t);
+  else toggleCargo(t.getAttribute('data-close'), false);
+});
+function fromHash(instant){
+  var id = (location.hash || '').replace(/^#/, '');
+  if (!document.getElementById('k-' + id)) return;
+  if (instant) document.body.classList.add('no-anim');
+  toggleCargo(id, true);
+  if (instant) requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.remove('no-anim'); }); });
+}
+window.addEventListener('hashchange', function(){ fromHash(false); });
+
+render();
+fromHash(true);
+})();
+</script>
+</body>
+</html>
