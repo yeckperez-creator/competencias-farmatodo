@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dcedf7">
+<meta name="description" content="Competencias por cargo, conductas de servicio y pilares de la operación para el equipo de Operaciones · Apoyo de Farmatodo.">
+<title>Competencias por Cargo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%230083be%22/%3E%3Cg%20transform%3D%22translate%2814%2014%29%20scale%281.5%29%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.83%202.18a2%202%200%200%200-1.66%200L2.6%206.08a1%201%200%200%200%200%201.83l8.58%203.91a2%202%200%200%200%201.66%200l8.58-3.9a1%201%200%200%200%200-1.83z%22/%3E%20%3Cpath%20d%3D%22M2%2012a1%201%200%200%200%20.58.91l8.6%203.91a2%202%200%200%200%201.65%200l8.58-3.9A1%201%200%200%200%2022%2012%22/%3E%20%3Cpath%20d%3D%22M2%2017a1%201%200%200%200%20.58.91l8.6%203.91a2%202%200%200%200%201.65%200l8.58-3.9A1%201%200%200%200%2022%2017%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: app de una columna para teléfono. Inicio con tres mosaicos grandes (Competencias, Conductas, Pilares);
+   cada uno abre su pantalla con una franja pastel y tarjetas que se despliegan en el mismo lugar.
+   Paleta del logo de Farmatodo (azul Prusia y cerúleo) llevada a pastel; cada sección y cada cargo con su tono. */
+:root{
+  color-scheme:light;
+  --bg:#f3f8fc; --surface:#ffffff; --band:#dcedf7; --line:#d5e5ef;
+  --navy:#004473; --ink:#17395a; --muted:#587189; --brand:#0083be;
+  --amber-bg:#fff0c4; --amber-ink:#7a5200;
+  --k:#0083be; --p:#d6ecf8; --p2:#eef7fc; --d:#00527a;
+  --display:"Nunito","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --t:.32s;
+}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{height:100%;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:left;cursor:pointer}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+:focus-visible{outline:2.5px solid var(--k);outline-offset:3px;border-radius:10px}
+svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.note{font-size:.875rem;line-height:1.45;color:var(--muted)}
+.lbl{font:700 .72rem/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+
+.view{flex:1;display:flex;flex-direction:column}
+.wrap{flex:1;width:100%;max-width:36rem;margin-inline:auto;display:flex;flex-direction:column;gap:1rem;padding-block:1.2rem 2.5rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* franjas de título */
+.band{position:relative;overflow:hidden;background:var(--band);border-radius:0 0 32px 32px}
+.band::before,.band::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.band::before{width:13rem;height:13rem;right:-4rem;top:-5rem;background:#c9e4f3}
+.band::after{width:7rem;height:7rem;right:-2rem;bottom:-3rem;background:#e9e4fb}
+.band-in{position:relative;z-index:1;max-width:36rem;margin-inline:auto;display:flex;flex-direction:column;gap:.55rem;padding-block:1.5rem 1.7rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{display:inline-flex;align-self:flex-start;align-items:center;gap:.45rem;padding:.35rem .7rem .35rem .4rem;border-radius:999px;background:var(--surface);color:var(--brand);font:700 .78rem/1 var(--body);letter-spacing:.04em}
+.eyebrow svg{width:1.05rem;height:1.05rem}
+.band h1{font:800 2.3rem/1.04 var(--display);color:var(--navy);letter-spacing:-.01em;text-wrap:balance}
+.band p{color:var(--ink);font-size:1.05rem;line-height:1.4;max-width:32ch}
+.sband{background:var(--p)}
+.sband::before{background:var(--surface);opacity:.45}
+.sband::after{background:var(--surface);opacity:.3}
+.sband .band-in{padding-block:.8rem 1.5rem;gap:.6rem}
+.sband h1{font-size:2rem;color:var(--d)}
+.back{align-self:flex-start;display:inline-flex;align-items:center;gap:.3rem;margin-left:-.5rem;padding:.5rem .6rem;border-radius:10px;color:var(--d);font:800 1.05rem/1 var(--display);text-decoration:none}
+.back svg{width:1rem;height:1rem;stroke-width:2.6}
+.sb-row{display:flex;align-items:center;gap:.8rem}
+
+/* íconos */
+.ic{width:3.6rem;height:3.6rem;border-radius:19px;background:var(--surface);color:var(--k);display:grid;place-items:center;flex:none;box-shadow:0 4px 12px -8px var(--d)}
+.ic svg{width:1.8rem;height:1.8rem;stroke-width:1.9}
+.chev{width:.55rem;height:.55rem;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg);margin-top:-.15rem;transition:transform var(--t)}
+[aria-expanded="true"] > * > .chev,[aria-expanded="true"] > .chev{transform:rotate(225deg);margin-top:.2rem}
+
+/* menú principal */
+.menu{flex:1;display:flex;flex-direction:column;gap:.9rem}
+.mtile{flex:1 1 auto;min-height:8.2rem;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;padding:1.2rem 1.1rem 1.2rem 1.1rem;border-radius:28px;background:var(--p);color:var(--d);text-decoration:none;border:2px solid transparent;transition:border-color .15s,transform .12s}
+.mtile:hover{border-color:var(--k)}
+.mtile:active{transform:scale(.985)}
+.mtile .ic{width:4.2rem;height:4.2rem;border-radius:22px}
+.mtile .ic svg{width:2.1rem;height:2.1rem}
+.mt-tx{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.mt-n{font:800 1.9rem/1 var(--display)}
+.mt-d{font-size:.92rem;line-height:1.35}
+.mt-m{align-self:flex-start;margin-top:.2rem;font:700 .7rem/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--k);background:var(--surface);border-radius:999px;padding:.32rem .55rem}
+.go{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--surface);color:var(--k);display:grid;place-items:center;flex:none}
+.go svg{width:1.15rem;height:1.15rem;stroke-width:2.6}
+
+/* tarjetas que se despliegan */
+.accs{display:flex;flex-direction:column;gap:.85rem}
+.big{border-radius:26px;background:var(--p);border:2px solid transparent;overflow:hidden;scroll-margin-top:12px;transition:border-color var(--t),box-shadow var(--t)}
+.big.is-open{border-color:var(--k);box-shadow:0 10px 28px -16px var(--k)}
+.head{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.95rem;padding:1.05rem 1.05rem 1.05rem 1rem;min-height:6.4rem;color:var(--d)}
+.head:active{transform:scale(.99)}
+.head-tx{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.head-n{font:800 1.5rem/1.08 var(--display);text-wrap:balance}
+.head-s{font-size:.88rem;line-height:1.3;opacity:.85}
+.head-c{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.55rem .55rem .45rem;border-radius:16px;background:var(--surface);min-width:3.4rem;font-variant-numeric:tabular-nums;color:var(--k)}
+.head-c b{font:800 1.6rem/.9 var(--display)}
+.head-c small{font:700 .56rem/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.head-c > svg{width:1.45rem;height:1.45rem}
+.panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows var(--t) ease,visibility 0s var(--t)}
+.panel.is-open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows var(--t) ease,visibility 0s}
+.panel-in{min-height:0;overflow:hidden}
+.pbody{display:flex;flex-direction:column;gap:.6rem;padding:.15rem .75rem .9rem}
+.legend{padding:.1rem .35rem .3rem;color:var(--d);opacity:.88}
+.wcard{background:var(--surface);border-radius:20px;padding:.95rem 1rem}
+.close{align-self:center;display:inline-flex;align-items:center;gap:.5rem;margin-top:.2rem;padding:.7rem 1.15rem;border-radius:999px;background:var(--surface);font:800 .95rem/1 var(--display);color:var(--d)}
+.close .chev{transform:rotate(225deg);margin-top:.2rem;width:.45rem;height:.45rem;border-width:2px}
+
+/* competencias dentro de un cargo */
+.list{display:flex;flex-direction:column;gap:.55rem}
+.comp{border-radius:20px;background:var(--surface);border:1.5px solid transparent;transition:border-color var(--t)}
+.comp.is-open{border-color:var(--k)}
+.crow{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.8rem;padding:.8rem .8rem .8rem .75rem;min-height:4.5rem}
+.cic{width:2.75rem;height:2.75rem;border-radius:50%;background:var(--p);color:var(--k);display:grid;place-items:center;flex:none;transition:background-color var(--t),color var(--t)}
+.cic svg{width:1.35rem;height:1.35rem}
+.comp.is-open .cic{background:var(--k);color:var(--surface)}
+.comp-tx{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.comp-n{font:800 1.08rem/1.2 var(--display);color:var(--navy);text-wrap:balance}
+.comp-m{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem}
+.pips{display:inline-flex;gap:3px;flex:none}
+.pips i{width:.55rem;height:.55rem;border-radius:50%;background:var(--p)}
+.pips .on{background:var(--k)}
+.crit{font:700 .66rem/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--amber-ink);background:var(--amber-bg);border-radius:999px;padding:.28rem .5rem}
+.lv{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:2.9rem;padding:.4rem .3rem;border-radius:14px;background:var(--p2);font-variant-numeric:tabular-nums}
+.lv small{font:700 .54rem/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.lv b{font:800 1.45rem/.9 var(--display);color:var(--k)}
+.dbody{display:flex;flex-direction:column;gap:1rem;padding:.1rem 1rem 1.1rem}
+.blk{display:flex;flex-direction:column;gap:.4rem}
+.blk h3{font:700 .74rem/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.lvt{font:800 1rem/1.3 var(--display);color:var(--navy)}
+.bul{display:flex;flex-direction:column;gap:.45rem}
+.bul li{position:relative;padding-left:1.15rem;line-height:1.45}
+.bul li::before{content:"";position:absolute;left:.1rem;top:.55em;width:.5rem;height:.5rem;border-radius:50%;background:var(--p);box-shadow:inset 0 0 0 2px var(--k)}
+.prev{display:flex;flex-direction:column;gap:.45rem}
+.sub-l{border-radius:14px;background:var(--p2)}
+.sub-l > summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.7rem .85rem;font-size:.95rem;line-height:1.3}
+.sub-l > summary b{color:var(--d)}
+.sub-l > summary .chev{width:.45rem;height:.45rem;border-width:2px;color:var(--muted)}
+.sub-l[open] > summary .chev{transform:rotate(225deg);margin-top:.2rem}
+.sub-l .bul{padding:0 .85rem .85rem;color:var(--muted)}
+
+/* conductas */
+.lead-k{font:800 1.2rem/1.3 var(--display);color:var(--navy)}
+.num{width:3.6rem;height:3.6rem;border-radius:19px;background:var(--surface);display:grid;place-items:center;flex:none;font:800 2.3rem/1 var(--display);color:var(--k);box-shadow:0 4px 12px -8px var(--d)}
+.checks{display:flex;flex-direction:column;gap:.7rem}
+.checks li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.7rem;align-items:start;line-height:1.4}
+.tick{width:1.5rem;height:1.5rem;border-radius:50%;background:var(--k);color:var(--surface);display:grid;place-items:center;margin-top:.05rem}
+.tick svg{width:.9rem;height:.9rem;stroke-width:3}
+.tie{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.8rem;align-items:center;padding:.95rem 1rem;border-radius:20px;background:var(--surface)}
+.tie .cic{background:#d6ecf8;color:#0083be}
+.tie a{color:var(--k);font-weight:700}
+.motto{padding:1.3rem 1.2rem;border-radius:24px;background:var(--navy);color:#ffffff;font:800 1.35rem/1.25 var(--display);text-align:center;text-wrap:balance}
+
+/* pilares */
+.sh{display:flex;flex-direction:column;gap:.25rem;margin-top:.6rem}
+.sh h2{font:800 1.45rem/1.15 var(--display);color:var(--navy);text-wrap:balance}
+.vs{display:grid;gap:.6rem}
+.vs > div{display:flex;flex-direction:column;gap:.35rem;padding:.95rem 1rem;border-radius:20px}
+.vs-a{background:#eef1f4;color:#5b6772}
+.vs-a .lbl{color:#7a858f}
+.vs-a p:last-child{text-decoration:line-through;text-decoration-color:#c2a3a3}
+.vs-b{background:var(--surface);border:1.5px solid var(--k)}
+.obj{padding:.1rem .3rem;line-height:1.45}
+.obj b{color:var(--navy)}
+.tl{display:flex;flex-direction:column;gap:.85rem}
+.tl > li{position:relative}
+.tl > li + li::before{content:"";position:absolute;left:calc(1rem + 1.65rem + 2px - 1.5px);top:-.85rem;width:3px;height:.85rem;border-radius:2px;background:var(--k)}
+.pnum{width:3.3rem;height:3.3rem;border-radius:50%;background:var(--d);color:#ffffff;display:grid;place-items:center;flex:none;font:800 1.6rem/1 var(--display)}
+.loop{display:flex;align-items:center;gap:.55rem;padding-left:1.95rem;color:var(--d);font:800 .95rem/1.2 var(--display)}
+.loop svg{width:1.25rem;height:1.25rem;stroke-width:2.4;color:var(--k)}
+.lema{font:800 1.15rem/1.25 var(--display);color:var(--navy);padding:.1rem .35rem 0}
+.chip-k{align-self:flex-start;display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .7rem;border-radius:999px;background:var(--surface);color:var(--d);font:700 .82rem/1.2 var(--body)}
+.chip-k svg{width:1rem;height:1rem}
+.items{display:grid;gap:.55rem}
+.items li{display:flex;flex-direction:column;gap:.2rem;padding:.85rem 1rem;border-radius:18px;background:var(--surface)}
+.items b{font:800 1.02rem/1.25 var(--display);color:var(--navy)}
+.items span{line-height:1.4}
+.nota{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.6rem;align-items:start;padding:.85rem 1rem;border-radius:18px;background:var(--p2);color:var(--d);font-weight:600;line-height:1.4}
+.nota svg{width:1.2rem;height:1.2rem;margin-top:.1rem;color:var(--k)}
+.stat{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem;border-radius:20px;background:var(--surface)}
+.stat b{font:800 2.6rem/1 var(--display);color:var(--k);font-variant-numeric:tabular-nums}
+.stat span{font-weight:600;line-height:1.35;color:var(--navy)}
+.pasos{display:grid;gap:.55rem}
+.pasos li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.8rem;align-items:start;padding:.85rem 1rem;border-radius:18px;background:var(--surface)}
+.pasos .pn{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--p);color:var(--d);display:grid;place-items:center;font:800 1.05rem/1 var(--display)}
+.pasos div{display:flex;flex-direction:column;gap:.15rem}
+.pasos b{font:800 1.02rem/1.25 var(--display);color:var(--navy)}
+.hq{padding:0 .35rem;color:var(--d);font-weight:600}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+.case{display:flex;flex-direction:column;gap:.35rem;padding:.85rem .9rem;border-radius:18px;background:var(--surface);line-height:1.38;font-size:.95rem}
+.case b{font:800 1.02rem/1.2 var(--display);color:var(--navy)}
+.case .x{margin-top:auto;padding-top:.35rem;font-weight:700;color:var(--k)}
+.case.go-on{border:1.5px solid var(--k)}
+.lider{display:flex;flex-direction:column;gap:.5rem;padding:.95rem 1rem;border-radius:20px;background:var(--surface)}
+.venn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.4rem;align-items:center}
+.vc{display:flex;flex-direction:column;gap:.2rem;padding:.7rem .75rem;border-radius:16px;background:var(--p2);font-size:.9rem;line-height:1.35;height:100%}
+.vc b{font:800 .98rem/1.2 var(--display);color:var(--navy)}
+.op{width:1.7rem;height:1.7rem;border-radius:50%;background:var(--k);color:#ffffff;display:grid;place-items:center}
+.op svg{width:1rem;height:1rem;stroke-width:3}
+.vr{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.6rem;align-items:start;padding:.75rem .8rem;border-radius:16px;background:var(--p)}
+.vr div{display:flex;flex-direction:column;gap:.15rem;line-height:1.38}
+.vr b{font:800 1.02rem/1.2 var(--display);color:var(--d)}
+.mx{display:grid;gap:.6rem}
+.mx-row{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem .8rem;align-items:center;padding:.9rem 1rem;border-radius:20px;background:var(--surface);border:1.5px solid var(--line)}
+.mx-row:hover{border-color:var(--k)}
+.mx-s{grid-column:1/-1;font:800 1.05rem/1.3 var(--display);color:var(--navy)}
+.mx-p{display:inline-flex;align-items:center;gap:.4rem;font:700 .9rem/1.2 var(--body);color:var(--d)}
+.mx-p .pb{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--d);color:#ffffff;display:grid;place-items:center;font:800 .85rem/1 var(--display)}
+.mx-p svg{width:1rem;height:1rem;color:var(--k)}
+.mx-c{grid-column:1/-1;font-size:.88rem;line-height:1.38;color:var(--muted)}
+.mx-go{grid-row:2;grid-column:2;font:700 .78rem/1 var(--body);color:var(--k)}
+.motor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.motor li{display:flex;flex-direction:column;gap:.45rem;padding:.9rem .9rem 1rem;border-radius:20px;background:var(--surface)}
+.motor .cic{background:#d6ecf8;color:#0083be}
+.motor b{font:800 1rem/1.2 var(--display);color:var(--navy)}
+.motor span{font-size:.88rem;line-height:1.38;color:var(--muted)}
+.cierre{display:flex;flex-direction:column;gap:.6rem;padding:1.3rem 1.2rem;border-radius:24px;background:var(--navy);color:#ffffff}
+.cierre b{font:800 1.4rem/1.2 var(--display);text-wrap:balance}
+.cierre p{line-height:1.45;color:#d6e6f2}
+
+@media (max-width:22rem){ .split,.motor{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:no-preference){
+  .view:not([hidden]) .mtile,.view:not([hidden]) .accs > .big,.view:not([hidden]) .tl > li{animation:rise .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+  .big.is-open .comp{animation:rise .38s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--j) * 35ms + 80ms)}
+}
+@media (prefers-reduced-motion:reduce){ :root{--t:0s} }
+.no-anim *{transition:none!important;animation:none!important}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+</style>
+</head>
+<body>
+<section class="view" id="v-inicio">
+  <header class="band">
+    <div class="band-in">
+      <p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>Operaciones · Apoyo</p>
+      <h1>Competencias, conductas y pilares</h1>
+      <p>Elige una sección para empezar.</p>
+    </div>
+  </header>
+  <main class="wrap"><nav class="menu" id="menu" aria-label="Secciones"></nav></main>
+</section>
+<section class="view" id="v-competencias" hidden></section>
+<section class="view" id="v-conductas" hidden></section>
+<section class="view" id="v-pilares" hidden></section>
+
+<script>
+(function(){
+'use strict';
+
+var COMP_ORDER = ["equipo","tecnico","desarrollo","direccion","energia","excelencia","liderazgo","madurez","resultados","cliente","orden","seguimiento","sensibilidad","urgencia"];
+var COMPS = {"equipo":{"n":"Conciencia de Equipo","q":"Es la disposición a colaborar con otros y trabajar juntos hacia un objetivo común, en vez de hacerlo de forma individual o competitiva.","niv":[{"t":"Coopera con el equipo","c":["Participa activamente y con gusto en el equipo.","Dale importancia a los objetivos del equipo y responde bien cuando te piden ayuda.","Mantén informados a los demás. Si te enteras de una promoción nueva, compártela con todos."]},{"t":"Valora al equipo y ofrece su experiencia","c":["Ofrece ayuda en lo que tienes experiencia.","Intercambia ideas e información con frecuencia.","Mantente abierto a aprender de tus compañeros."]},{"t":"Anima al equipo","c":["Motiva a tus compañeros haciéndoles sentir importantes.","Actúa pensando en el beneficio del equipo.","Quédate con tu equipo en las situaciones difíciles."]},{"t":"Crea espíritu de equipo","c":["Trabaja para que haya un clima de equipo y cooperación.","Defiende la reputación y la identidad del equipo frente a terceros."]}]},"tecnico":{"n":"Conocimiento Técnico","q":"Es mantenerte actualizado y poner en práctica tus conocimientos técnicos para asesorar al cliente o implementar soluciones que cumplan los estándares de Farmatodo.","niv":[{"t":"Se mantiene actualizado en su campo de conocimiento","c":["Lee, investiga y pregunta para estar al día en novedades del sector farmacéutico, retail y tecnológico.","Ubica la información sobre cambios legales y nuevas tecnologías para cumplir a tiempo.","Apóyate en laboratorios, proveedores e internet para conocer nuevos productos, presentaciones y soluciones."]},{"t":"Utiliza sus conocimientos","c":["Aplica lo que sabes para dar asesoría farmacéutica o soluciones tecnológicas a partir de lo que el cliente necesita.","Responde como experto las preguntas de tus clientes internos y externos."]},{"t":"Brinda apoyo técnico a su equipo","c":["Comparte tu experiencia y conocimiento con el equipo para que pueda dar la asesoría esperada.","Sé un referente: que los demás te reconozcan como experto en tu campo."]},{"t":"Da sugerencias con foco en resultados","c":["Da sugerencias fundamentadas en tu conocimiento técnico y del negocio para lograr mejores resultados."]}]},"desarrollo":{"n":"Desarrollo de Otros","q":"Es el interés genuino por la formación y el desarrollo, tanto el propio como el de otras personas, según las necesidades de cada quien y de Farmatodo.","niv":[{"t":"Se adueña de su desarrollo personal «en el día a día»","c":["Pregunta, pide retroalimentación y busca apoyo en compañeros o supervisores para seguir creciendo.","Busca contar con un Plan de Desarrollo.","Identifica lo que frena tu desempeño o tu motivación y trabaja para mejorarlo."]},{"t":"Da instrucciones y apoya al desarrollo de otros","c":["Dedica tiempo a dar instrucciones detalladas sobre procesos y tareas, y asegúrate de que quedaron claras.","Da apoyo práctico para que otros aprendan: simulaciones, consejo experto, información, recursos, tiempo."]},{"t":"Anima a desarrollarse y retroalimenta","c":["Motiva a tus colaboradores a asumir nuevas responsabilidades y a exponerse a situaciones nuevas.","Indaga sus necesidades de formación y motívalos a tomar acciones concretas, como tareas especiales.","Da retroalimentación constructiva, uno a uno, sobre resultados y conductas."]},{"t":"Fomenta el aprendizaje y la formación a largo plazo","c":["Promueve que las personas resuelvan los problemas por sí mismas en vez de darles la respuesta.","Trabaja con las áreas responsables para actualizar o crear procesos de desarrollo.","Monitorea el progreso de tus colaboradores y asegúrate de que asistan a sus adiestramientos."]},{"t":"Genera capacidad organizacional","c":["Promueve transferencias, intercambios entre áreas o países y asignaciones a proyectos con fines de desarrollo.","Crea un clima que propicie el aprendizaje.","Identifica el potencial y desarrolla a quienes pueden relevarte en tu cargo."]}]},"direccion":{"n":"Dirección de Otros","q":"Es la habilidad de orientar el desempeño de tu equipo o de otras personas, como pares y proveedores: fijar estándares, hacer seguimiento y dar retroalimentación.","niv":[{"t":"Explica detalladamente las expectativas de desempeño","c":["Comunica a las personas lo que se espera de ellas y verifica que quedó claro.","Asegúrate de que entiendan los parámetros de la tarea y las consecuencias de no cumplirlos."]},{"t":"Da retroalimentación oportuna","c":["Dedica tiempo a dar retroalimentación balanceada y abre la conversación para entender las razones de los resultados.","Haz seguimiento al desempeño comparándolo con los objetivos y actúa a tiempo si prevés problemas."]},{"t":"Responsabiliza a la gente por su desempeño","c":["Haz cumplir las normas y confronta de manera asertiva los problemas de desempeño.","Vincula la conducta de tus colaboradores con los indicadores del área para que asuman la responsabilidad de los resultados."]},{"t":"Promueve una cultura orientada al desempeño superior","c":["Toma decisiones concretas ante problemas de desempeño recurrentes: sanciones formales, movimientos internos, desincorporaciones.","Establece estándares nuevos y retadores, con mecanismos de apoyo para alcanzarlos."]}]},"energia":{"n":"Energía","q":"Es mantener un nivel de actividad alto y constante, al ritmo del día a día, con impulso y entusiasmo, sin perder el foco en los resultados.","niv":[{"t":"Resiste con energía","c":["Interésate por trabajos con mucha actividad física y mental.","Mantente dispuesto a trabajar tiempo extra si la situación lo amerita.","Muestra entusiasmo durante todo el día, en lo que dices y en tu lenguaje corporal."]},{"t":"Mantiene el ritmo de trabajo","c":["Mantén un ritmo constante sin que la presión del día afecte tu efectividad.","Sostén el ritmo aunque te asignen responsabilidades adicionales.","Pasa de una actividad a otra con rapidez y reponte pronto de los contratiempos."]},{"t":"Refleja entusiasmo","c":["Demuestra energía, entusiasmo y pasión por lo que haces.","Mantén tu nivel con personas y situaciones distintas que cambian en poco tiempo.","Ante cambios súbitos u obstáculos, sigue atento y persiste hasta terminar la tarea."]},{"t":"Dirige la energía","c":["Promueve entusiasmo, acción y pasión por el trabajo en tu equipo.","Transmite fuerza e ímpetu en todas tus acciones."]}]},"excelencia":{"n":"Excelencia Operativa","q":"Es el interés por optimizar siempre los procesos para lograr más eficiencia y productividad: identificar mejoras, analizarlas y llevarlas a cabo.","niv":[{"t":"Relaciona las responsabilidades de su trabajo con el proceso y las mejores prácticas organizacionales","c":["Mientras trabajas, pregúntate si esa es la mejor manera de hacerlo, si hay retrabajo o pasos innecesarios.","Infórmate sobre la mejor forma de hacer tu trabajo en Farmatodo y aprovecha lo que ya funcionó antes."]},{"t":"Cuestiona el desempeño actual","c":["Cuida los costos y la eficiencia: elimina el retrabajo y usa los recursos de forma racional.","Cuestiona de forma positiva los procesos de tu área: su razón de ser, su valor y su impacto en otras áreas."]},{"t":"Identifica áreas de mejora y/o cambios","c":["Analiza los procesos y visualiza los cambios específicos que necesitan.","Haz un análisis costo-beneficio antes de introducir mejoras.","Evalúa cómo impactaría la mejora a otras áreas."]},{"t":"Mejora continuamente los procesos a su cargo","c":["Implementa mejoras con planes de acción, objetivos e indicadores medibles.","Abre espacios con los equipos para generar ideas de mejora."]},{"t":"Promueve el mejoramiento continuo en la Organización","c":["Evalúa y documenta los resultados de las mejoras implementadas.","Involucra y estimula a las personas para que propongan ideas de mejora.","Introduce mejoras tomando como referencia buenas prácticas del mercado global."]}]},"liderazgo":{"n":"Liderazgo","q":"Es la capacidad de inspirar a otros a alcanzar altos estándares de desempeño, creando un clima de energía y compromiso, desde una posición formal o informal de autoridad.","niv":[{"t":"Asume un rol de liderazgo, aunque no sea su rol formal","c":["Asume el rol de líder en el equipo para guiarlo o movilizarlo frente a un problema, aunque no tengas el cargo.","Asegúrate de que el grupo tenga la información que necesita y explica las razones de las decisiones."]},{"t":"Promueve la efectividad del equipo","c":["Asegura las condiciones para que el equipo logre sus resultados: recursos, equipos de seguridad e higiene, entrenamientos.","Atiende el clima del equipo y aborda lo que lo afecta."]},{"t":"Genera confianza y cercanía con la gente","c":["Acércate a tu personal y abre espacios para escuchar sus inquietudes. Sé un líder de puertas abiertas.","Sé justo: aplica las normas y exigencias de forma equitativa.","Involúcrate en las situaciones difíciles y ayuda hombro a hombro."]},{"t":"Es un modelo a seguir","c":["Sé coherente entre lo que exiges y lo que haces.","Sé modelo en el cumplimiento de los valores de Farmatodo y asegura las normas de convivencia.","Respeta la jerarquía: que cada supervisor resuelva según su nivel de autoridad.","Reconoce los logros individuales y grupales y relaciónalos con los resultados."]},{"t":"Promueve una visión común","c":["Comunícate con otros líderes para alinear mensajes y resultados esperados.","Comunica con claridad los objetivos de la Organización y vincúlalos con el trabajo diario de cada colaborador."]},{"t":"Se posiciona como líder","c":["Transmite en tus mensajes una energía que moviliza y genera compromiso.","Asume los compromisos, retos y situaciones complejas con madurez emocional."]}]},"madurez":{"n":"Madurez Emocional","q":"Es tener confianza en tus capacidades y puntos de vista, y asumir con seguridad y aplomo las situaciones, retos, cambios y nuevas responsabilidades del trabajo.","niv":[{"t":"Actúa con autonomía","c":["Toma las decisiones que corresponden a tu cargo sin consultar cada una y hazte responsable de ellas.","Atiende al cliente con seguridad, mostrando que conoces tu área."]},{"t":"Demuestra seguridad en sus capacidades","c":["Muéstrate capaz de sacar adelante lo que te propones.","Expresa tus opiniones y haz tu trabajo con seguridad en lo que sabes.","Apóyate en lo aprendido en experiencias pasadas para decidir.","Recibe los reclamos de los clientes con seguridad y canalízalos."]},{"t":"Asume retos con seguridad y aplomo","c":["Asume con seguridad los distintos roles que te toquen.","Acepta responsabilidades adicionales aunque no las domines del todo, con confianza y control emocional.","Apóyate en los mejores recursos que tengas para resolver cada reto."]},{"t":"Se mantiene calmado y seguro en situaciones de alta presión","c":["En conversaciones difíciles, regula tus emociones y sigue actuando con calma y asertividad.","Responde de forma constructiva pese al estrés de la operación o a una crisis.","En situaciones de alto impacto, mantén la apertura y céntrate en resolver."]}]},"resultados":{"n":"Orientación a Resultados Excelentes","q":"Es el interés permanente por trabajar bien y alcanzar o superar los estándares de excelencia, propios o de la Organización.","niv":[{"t":"Desempeña muy bien su trabajo","c":["Busca métodos o herramientas para hacer tu trabajo de forma eficiente.","Cumple los compromisos que haces con todas las personas con las que trabajas."]},{"t":"Monitorea su desempeño y busca mejorarlo","c":["Mide tus resultados contra los objetivos, tiempos, calidad y metas esperadas.","Pide retroalimentación sobre tu desempeño para incorporar cambios.","Ponte metas profesionales para aumentar tus capacidades."]},{"t":"Establece metas retadoras y trabaja para alcanzarlas","c":["Define tus objetivos, prioridades y estándares según lo que debe alcanzar el área.","Haz cambios específicos para mejorar tu desempeño y el de tu área.","Haz seguimiento a los objetivos y corrige las desviaciones.","Compara el desempeño de tu área con el de otras empresas para superarte."]},{"t":"Toma riesgos calculados para hacer crecer el negocio","c":["Compromete recursos y tiempo para lograr mejoras, intentar algo nuevo o alcanzar un objetivo difícil, mitigando los riesgos.","Persigue retos que beneficien al negocio a largo plazo.","Logra mejoras significativas en áreas del negocio con bajo desempeño."]}]},"cliente":{"n":"Orientación al Cliente","q":"Es el deseo genuino de satisfacer las necesidades de los clientes internos y externos, demostrando las conductas de servicio de Farmatodo.","niv":[{"t":"Responde de manera efectiva al cliente","c":["Trata al cliente interno y externo de forma educada y amable.","Responde rápido a lo que te piden y oriéntalo hacia una solución disponible.","Ante una queja o una solicitud particular, da una respuesta clara y ágil."]},{"t":"Se compromete personalmente con el cliente","c":["Aclara expectativas, prioriza tu trabajo para dar el mejor servicio y comprométete con tiempos realistas.","Cumple lo que le prometes al cliente.","Dale respuesta aunque atenderlo no sea tu responsabilidad directa.","Haz preguntas para conocer a fondo lo que necesita."]},{"t":"Se compromete con perspectiva de largo plazo","c":["Mantente totalmente disponible para el cliente, sobre todo en sus momentos críticos.","Asume los problemas del cliente como propios y ve más allá del servicio normal.","Mantén una comunicación fluida para identificar sus necesidades de largo plazo y anticiparte a ellas.","Construye una relación de confianza con el cliente interno."]},{"t":"Promueve la orientación al cliente","c":["Comunica la importancia del cliente como centro del negocio y vincula las tareas del día a día con su impacto en él.","Modela y promueve en el equipo las conductas de una excelente atención.","Apoya las iniciativas de servicio al cliente aunque impliquen recursos, dinero o tiempo."]}]},"orden":{"n":"Preocupación por el Orden y el Detalle","q":"Es reducir al mínimo los errores revisando y controlando el trabajo, sobre todo en lo operativo: planogramas, etiquetado, manejo y control de inventario.","niv":[{"t":"Muestra preocupación por el detalle","c":["Trabaja con normas, objetivos y procedimientos claros, de ser posible por escrito.","Sé cuidadoso con los datos y las cifras.","Mantén orden y limpieza en tu espacio de trabajo y en tu imagen personal."]},{"t":"Comprueba su propio trabajo","c":["Revisa con cuidado la exactitud de la información que recibes y de tu propio trabajo.","Recorre el piso de venta y revisa los detalles: planograma asignado, limpieza, habladores, etiquetado.","Cumple la planificación dada y lleva tu carpeta completa, ordenada y al día."]},{"t":"Verifica la calidad del trabajo de los demás","c":["Controla la calidad del trabajo de tu equipo: que se sigan los procedimientos y se alcancen los estándares.","Sé metódico y haz seguimiento al trabajo propio y al de los demás."]},{"t":"Sistematiza la verificación del detalle","c":["Establece controles de calidad y lleva registro de errores o fallas.","Haz seguimiento a la información: detecta datos erróneos o ausentes y complétalos.","Busca mejorar el orden de los sistemas para reducir el margen de error."]}]},"seguimiento":{"n":"Seguimiento y Control","q":"Es hacer seguimiento estrecho y continuo a los detalles administrativos y operativos para que la gestión salga bien y a tiempo, detectando desviaciones y anticipando problemas.","niv":[{"t":"Es cuidadoso con los detalles","c":["Cuida los detalles de cada actividad y proceso para que cumplan los estándares.","Verifica dos veces la información antes de dársela a otro.","Registra los datos o eventos que ayudan a mejorar un proceso o a resolver un problema."]},{"t":"Hace seguimiento","c":["Haz seguimiento teniendo presente lo que le cuesta al negocio un problema que no se resuelve a tiempo o un acuerdo que no se cumple."]},{"t":"Verifica la corrección de problemas identificados","c":["Crea tus propios cuadros o listas de control para registrar los problemas y garantizar que se solucionen según lo conversado.","Revisa con frecuencia el avance de lo acordado frente a objetivos y plazos, y suministra las herramientas necesarias."]},{"t":"Promueve y comunica la importancia del cumplimiento de estándares","c":["Comunica y exige a tu equipo la atención a los detalles, la limpieza y el orden, y muéstrale su impacto en el resto de la cadena.","Modela las conductas de seguimiento y control: exígete y exige a otros cumplir las normas y procesos."]}]},"sensibilidad":{"n":"Sensibilidad Interpersonal","q":"Es la capacidad de interpretar y entender los pensamientos, la conducta, los sentimientos y las preocupaciones de las personas, los expresen o no, y actuar de forma asertiva según eso.","niv":[{"t":"Reconoce razones y emociones","c":["Dedica tiempo a escuchar y comprender a las personas: sus valores, preocupaciones, expectativas e intereses.","Identifica su estado emocional por el lenguaje corporal, la expresión, el tono de voz y lo que dicen."]},{"t":"Entiende los significados","c":["Concentra tu atención en entender el estado emocional y el contenido de lo que la persona expresa, con palabras y con el cuerpo.","Toma las reacciones de la gente como un conjunto de razones y emociones."]},{"t":"Identifica las razones de las conductas","c":["Entiende por qué las personas actúan de cierta manera, aunque no lo digan.","Sé cuidadoso al hacer juicios de valor sobre los sentimientos de los demás."]},{"t":"Comprende lo que no está a simple vista","c":["Comprende las razones de fondo que explican los problemas, sentimientos y comportamientos de los demás.","Haz un esfuerzo genuino por ponerte en los zapatos del otro.","Reconoce las diferencias entre las personas y relaciónate con cada una según estas."]}]},"urgencia":{"n":"Sentido de Urgencia","q":"Es actuar, acatar instrucciones y adueñarse de una situación de forma efectiva, rápida y oportuna.","niv":[{"t":"Actúa rápidamente ante una situación","c":["Actúa rápido y con decisión, o sigue la instrucción, para resolver según tu autonomía y alcance.","Si ves un problema o algo fuera de lo normal, avisa de inmediato a tu supervisor o al responsable del área.","Sugiere una posible solución."]},{"t":"Resuelve con efectividad","c":["Distingue lo importante de lo urgente para el negocio y organiza tus actividades según eso.","Atiende varias situaciones a la vez con agilidad."]},{"t":"Hace seguimiento a las soluciones propuestas","c":["Después de una situación crítica, haz seguimiento hasta la solución final para evitar nuevos imprevistos.","Insiste, moviliza recursos y canaliza con las áreas necesarias hasta que se resuelva, aunque no sea tu responsabilidad directa."]},{"t":"Se prepara para posibles eventualidades","c":["Formula y ejecuta planes para mejorar la velocidad de respuesta y atención.","Anticípate con planes de contingencia, considerando los indicadores y las situaciones externas."]},{"t":"Promueve el sentido de urgencia","c":["Promueve un ambiente de dinamismo que valore responder a tiempo para resolver lo que afecta el desempeño."]}]}};
+var CRIT = ["desarrollo","direccion","excelencia","liderazgo","resultados","cliente","seguimiento","urgencia"];
+var CARGOS = [{"id":"apv","nombre":"APV","sub":"Asistente de Piso de Venta","corto":"APV","icon":"shopping-basket","c":{"k":"#0083be","p":"#d6ecf8","p2":"#eef7fc","d":"#00527a"},"niv":{"equipo":3,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"madurez":2,"resultados":1,"cliente":1,"orden":2,"seguimiento":1,"urgencia":1}},{"id":"apv-senior","nombre":"APV Senior","sub":"Asistente de Piso de Venta Senior","corto":"APV Senior","icon":"award","c":{"k":"#0f8f78","p":"#d3f0e8","p2":"#ecf8f4","d":"#0b5c4d"},"niv":{"desarrollo":2,"direccion":1,"energia":4,"excelencia":1,"liderazgo":1,"madurez":3,"resultados":2,"cliente":2,"orden":3,"seguimiento":2,"urgencia":2}},{"id":"asistente-farmacia","nombre":"Asistente de Farmacia","sub":"","corto":"Asistente de Farmacia","icon":"pill","c":{"k":"#6a58cf","p":"#e6e2fa","p2":"#f4f2fd","d":"#46399a"},"niv":{"equipo":3,"tecnico":2,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"liderazgo":1,"madurez":2,"resultados":1,"cliente":2,"orden":2,"seguimiento":1,"sensibilidad":2,"urgencia":1}},{"id":"control-perdida","nombre":"Control de Pérdida","sub":"Asistente de Control de Pérdida y Servicios","corto":"Control de Pérdida","icon":"shield-check","c":{"k":"#cc5a35","p":"#fde2d7","p2":"#fef2ec","d":"#8f3d1e"},"niv":{"equipo":3,"desarrollo":1,"direccion":1,"energia":3,"excelencia":1,"madurez":3,"resultados":1,"cliente":2,"orden":2,"seguimiento":1,"urgencia":2}}];
+var COMP_ICON = {"equipo":"users","tecnico":"book-open","desarrollo":"sprout","direccion":"signpost","energia":"zap","excelencia":"settings","liderazgo":"flag","madurez":"heart","resultados":"target","cliente":"heart-handshake","orden":"clipboard-check","seguimiento":"search-check","sensibilidad":"ear","urgencia":"timer"};
+/* Íconos: Lucide (lucide.dev), licencia ISC. */
+var ICONS = {"users":"<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/> <path d=\"M16 3.128a4 4 0 0 1 0 7.744\"/> <path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/> <circle cx=\"9\" cy=\"7\" r=\"4\"/>","book-open":"<path d=\"M12 5v16\"/> <path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\"/>","sprout":"<path d=\"M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3\"/> <path d=\"M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4\"/> <path d=\"M5 21h14\"/>","signpost":"<path d=\"M12 13v8\"/> <path d=\"M12 3v3\"/> <path d=\"M2.354 10.354a1.207 1.207 0 0 1 0-1.708l2.06-2.06A2 2 0 0 1 5.828 6h12.344a2 2 0 0 1 1.414.586l2.06 2.06a1.207 1.207 0 0 1 0 1.708l-2.06 2.06a2 2 0 0 1-1.414.586H5.828a2 2 0 0 1-1.414-.586z\"/>","zap":"<path d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"/>","settings":"<path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"/> <circle cx=\"12\" cy=\"12\" r=\"3\"/>","flag":"<path d=\"M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528\"/>","heart":"<path d=\"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5\"/>","target":"<circle cx=\"12\" cy=\"12\" r=\"10\"/> <circle cx=\"12\" cy=\"12\" r=\"6\"/> <circle cx=\"12\" cy=\"12\" r=\"2\"/>","heart-handshake":"<path d=\"M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762\"/>","clipboard-check":"<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"/> <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/> <path d=\"m9 14 2 2 4-4\"/>","search-check":"<path d=\"m8 11 2 2 4-4\"/> <circle cx=\"11\" cy=\"11\" r=\"8\"/> <path d=\"m21 21-4.3-4.3\"/>","ear":"<path d=\"M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0\"/> <path d=\"M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4\"/>","timer":"<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"/> <line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\"/> <circle cx=\"12\" cy=\"14\" r=\"8\"/>","shopping-basket":"<path d=\"m15 11-1 9\"/> <path d=\"m19 11-4-7\"/> <path d=\"M2 11h20\"/> <path d=\"m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4\"/> <path d=\"M4.5 15.5h15\"/> <path d=\"m5 11 4-7\"/> <path d=\"m9 11 1 9\"/>","award":"<path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\"/> <circle cx=\"12\" cy=\"8\" r=\"6\"/>","pill":"<path d=\"m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z\"/> <path d=\"m8.5 8.5 7 7\"/>","shield-check":"<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/> <path d=\"m9 12 2 2 4-4\"/>","medal":"<path d=\"M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15\"/> <path d=\"M11 12 5.12 2.2\"/> <path d=\"m13 12 5.88-9.8\"/> <path d=\"M8 7h8\"/> <circle cx=\"12\" cy=\"17\" r=\"5\"/> <path d=\"M12 18v-2h-.5\"/>","landmark":"<path d=\"M10 18v-7\"/> <path d=\"M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z\"/> <path d=\"M14 18v-7\"/> <path d=\"M18 18v-7\"/> <path d=\"M3 22h18\"/> <path d=\"M6 18v-7\"/>","smile":"<path d=\"M15 10V9\"/> <path d=\"M16.472 15a6 6 0 01-8.943 0\"/> <path d=\"M9 10V9\"/> <circle cx=\"12\" cy=\"12\" r=\"10\"/>","lightbulb":"<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/> <path d=\"M9 18h6\"/> <path d=\"M10 22h4\"/>","user-check":"<path d=\"m16 11 2 2 4-4\"/> <path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/> <circle cx=\"9\" cy=\"7\" r=\"4\"/>","sparkles":"<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"/> <path d=\"M20 2v4\"/> <path d=\"M22 4h-4\"/> <circle cx=\"4\" cy=\"20\" r=\"2\"/>","clipboard-list":"<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"/> <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/> <path d=\"M12 11h4\"/> <path d=\"M12 16h4\"/> <path d=\"M8 11h.01\"/> <path d=\"M8 16h.01\"/>","video":"<path d=\"m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5\"/> <rect x=\"2\" y=\"6\" width=\"14\" height=\"12\" rx=\"2\"/>","list-checks":"<path d=\"M13 5h8\"/> <path d=\"M13 12h8\"/> <path d=\"M13 19h8\"/> <path d=\"m3 17 2 2 4-4\"/> <path d=\"m3 7 2 2 4-4\"/>","scale":"<path d=\"M12 3v18\"/> <path d=\"m19 8 3 8a5 5 0 0 1-6 0zV7\"/> <path d=\"M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1\"/> <path d=\"m5 8 3 8a5 5 0 0 1-6 0zV7\"/> <path d=\"M7 21h10\"/>","package-search":"<path d=\"M12 22V12\"/> <path d=\"M20.27 18.27 22 20\"/> <path d=\"M21 10.498V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.98-.559\"/> <path d=\"M3.29 7 12 12l8.71-5\"/> <path d=\"m7.5 4.27 8.997 5.148\"/> <circle cx=\"18.5\" cy=\"16.5\" r=\"2.5\"/>","refresh-cw":"<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\"/> <path d=\"M21 3v5h-5\"/> <path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\"/> <path d=\"M8 16H3v5\"/>","check":"<path d=\"M20 6 9 17l-5-5\"/>","info":"<circle cx=\"12\" cy=\"12\" r=\"10\"/> <path d=\"M12 16v-4\"/> <path d=\"M12 8h.01\"/>","clock":"<circle cx=\"12\" cy=\"12\" r=\"10\"/> <path d=\"M12 6v6l4 2\"/>","plus":"<path d=\"M5 12h14\"/> <path d=\"M12 5v14\"/>","equal":"<line x1=\"5\" x2=\"19\" y1=\"9\" y2=\"9\"/> <line x1=\"5\" x2=\"19\" y1=\"15\" y2=\"15\"/>"};
+
+var SECCIONES = {
+  competencias:{ nombre:'Competencias', titulo:'Competencias por cargo', desc:'Lo que debe saber hacer cada cargo y en qué nivel.', meta:'4 cargos', icon:'medal',
+    lead:'Toca un cargo para ver sus competencias y el nivel que debe tener en cada una.', c:{ k:'#0083be', p:'#d6ecf8', p2:'#eef7fc', d:'#00527a' } },
+  conductas:{ nombre:'Conductas', titulo:'5 conductas de servicio', desc:'Cómo atendemos a cada cliente que entra a la tienda.', meta:'5 conductas', icon:'heart-handshake',
+    lead:'En Farmatodo estamos para servir, por eso yo:', c:{ k:'#c2407e', p:'#fbe0ec', p2:'#fdf1f6', d:'#86224f' } },
+  pilares:{ nombre:'Pilares', titulo:'Los 5 pilares de la operación', desc:'El Estándar Farmatodo para que la tienda funcione cada día.', meta:'5 pilares', icon:'landmark',
+    lead:'El Estándar Farmatodo: el modelo para garantizar la excelencia operativa y la mejor experiencia de servicio al cliente.', c:{ k:'#3d5fc4', p:'#dfe5f8', p2:'#f1f4fc', d:'#28408a' } }
+};
+var ORDEN_SECCIONES = ['competencias', 'conductas', 'pilares'];
+
+var CONDUCTAS = [
+ { t:'Soy cercano con el cliente', icon:'smile', c:{ k:'#2f6fd0', p:'#dde8fb', p2:'#eef3fd', d:'#1d4a92' },
+   b:['Sonrío y saludo.','Hago contacto visual.','Soy amable y educado.','Me despido y agradezco al cliente por su visita.'] },
+ { t:'Actúo con agilidad para el cliente', icon:'zap', c:{ k:'#6a4fc9', p:'#e7e1fa', p2:'#f3f0fd', d:'#46339a' },
+   b:['Acompaño al cliente a buscar los productos.','Cuando el cliente tiene productos en mano, le ofrezco cesta o carrito.','Garantizo que no haya clientes en cola y reacciono de manera inmediata utilizando cualquier herramienta disponible.','De ser necesario, pauso cualquier actividad que esté realizando para atender rápidamente al cliente.'] },
+ { t:'Brindo soluciones al cliente', icon:'lightbulb', c:{ k:'#7a3db0', p:'#ece0f7', p2:'#f6f0fb', d:'#55267f' },
+   b:['Hago preguntas y escucho activamente para comprender la necesidad del cliente.','Demuestro interés y disposición para brindar soluciones, evitando las excusas.','Ante alguna demora, mantengo al cliente informado.','Si el producto solicitado no está disponible, ofrezco un sustituto.','Pido apoyo a mi supervisor de ser necesario.'] },
+ { t:'Personalizo el trato con el cliente', icon:'user-check', c:{ k:'#b23a86', p:'#f8dfee', p2:'#fcf0f7', d:'#7d2360' },
+   b:['Identifico su perfil (edad y género).','Lo llamo por su nombre.','Le brindo asesoría especializada en su compra.','Comunico al cliente sobre las ofertas que le pueden interesar.','Identifico clientes frecuentes y me adelanto a sus solicitudes.'] },
+ { t:'Deleito al cliente', icon:'sparkles', c:{ k:'#cf3a6b', p:'#fde0e9', p2:'#fef0f4', d:'#8f1f45' },
+   b:['Hago todo lo que esté a mi alcance para obtener un gracias.','Identifico oportunidades y tomo acciones para transformarlas en experiencias inolvidables para el cliente.','Reto la forma de hacer las cosas y busco alternativas simples y efectivas.','Utilizo todos los recursos disponibles para sorprender al cliente.'] }
+];
+
+var PILARES = [
+ { id:'adt', nombre:'ADT', corto:'Asignación de tareas, días libres y estructura en piso de venta.', lema:'La base de la estructura diaria', icon:'clipboard-list',
+   items:[{ t:'Planificación operativa', d:'Asignación clara de tareas diarias para todo el equipo en el piso de venta.' },
+          { t:'Gestión de turnos', d:'Organización estructurada de días libres y rotación de personal.' },
+          { t:'Claridad de roles', d:'Cada colaborador conoce exactamente sus responsabilidades al iniciar el turno.' },
+          { t:'Continuidad de tienda', d:'Contempla toda la operatividad para asegurar un flujo de trabajo continuo y eficiente.' }] },
+ { id:'sobrevuelo', nombre:'Sobrevuelo de Apertura', corto:'Video de apertura, diagnóstico a primera hora.', lema:'Diagnóstico en el momento cero', icon:'video',
+   chip:'En el momento exacto de la apertura',
+   items:[{ t:'Piso de venta y áreas externas', d:'Evaluación integral garantizando los estándares de imagen comercial.' },
+          { t:'Depósito', d:'Revisión del estado de las áreas internas a primera hora.' }],
+   nota:'Permite detectar y corregir oportunidades de mejora antes de la llegada masiva de clientes.' },
+ { id:'planograma', nombre:'Checklist de Planograma', corto:'Validación de exhibición, limpieza y feedback.', lema:'Anatomía de la exhibición correcta', icon:'list-checks',
+   items:[{ t:'Caras (facings)', d:'Valida que los productos respeten la exhibición y el número de caras asignadas.' },
+          { t:'Detección de fallas', d:'Identifica productos no exhibidos y ceros absurdos.' },
+          { t:'Condiciones', d:'Verificación estricta de orden y limpieza.' }],
+   lider:{ a:{ t:'Estándar', d:'Revisión en piso de venta.' }, b:{ t:'Desarrollo continuo', d:'Aprovechar el momento para capacitar y trabajar en las oportunidades del equipo.' },
+           r:{ t:'Espacio de feedback', d:'La instancia clave y directa para reconocer virtudes, competencias y aportes del colaborador.' } } },
+ { id:'conciliacion', nombre:'Auditoría de Conciliación', corto:'Verificación de conteos, 100% conciliación.', lema:'Precisión absoluta', icon:'scale',
+   stat:{ v:'100%', d:'de conciliación de inventario. Es una meta innegociable.' },
+   pasos:[{ t:'Verificación directa', d:'Corroborar la exactitud de los conteos realizados el día anterior.' },
+          { t:'Precisión y confiabilidad', d:'Garantizar la consistencia entre el stock físico y el sistema teórico.' },
+          { t:'Acción oportuna', d:'Identificación temprana de discrepancias para su corrección inmediata.' }] },
+ { id:'ceros', nombre:'Inventario de Ceros', corto:'Identificación de huecos reales vs. no exhibidos.', lema:'Evitando el falso agotado', icon:'package-search',
+   huecos:{ a:{ t:'Agote real', d:'El producto no existe en tienda ni en sistema.', x:'Requiere gestión de pedido.' },
+            b:{ t:'Falta de surtido', d:'Mercancía guardada en depósito que no ha sido llevada al piso de venta.', x:'Acción: resurtido oportuno.' } },
+   nota:'El resultado: conciliación de stock actualizada y máxima disponibilidad del producto cuando el cliente lo busca.' }
+];
+
+var MATRIZ = [
+ { s:'El equipo no sabe quién cubre el pasillo 3.', p:0, c:'Falta de claridad de roles y gestión de turnos.' },
+ { s:'Clientes entran y la fachada está sucia.', p:1, c:'Falla en el diagnóstico de áreas externas en el momento cero.' },
+ { s:'El sistema dice que hay 10 champús, pero el anaquel está vacío.', p:4, c:'Falso agotado: falta resurtido desde depósito.' },
+ { s:'Diferencia inexplicada en el inventario teórico.', p:3, c:'Falta de verificación directa del conteo anterior.' }
+];
+
+var MOTOR = [
+ { id:'excelencia', n:'Excelencia Operativa', d:'Mantenimiento riguroso de los estándares comerciales y procesos en cada rincón de la tienda.' },
+ { id:'resultados', n:'Orientación a Resultados', d:'Enfoque claro en la conciliación del 100% de inventarios y cero fallas en servicio.' },
+ { id:'seguimiento', n:'Seguimiento y Control', d:'Verificación constante a través de listas de chequeo, sobrevuelo e inspección diaria.' },
+ { id:'desarrollo', n:'Desarrollo de Otros', d:'Feedback constructivo continuo, reconocimiento de fortalezas y apoyo en oportunidades.' }
+];
+
+var CHEV_L = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+var CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+var CHEV = '<span class="chev" aria-hidden="true"></span>';
+
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s).replace(/[&<>"']/g, function(ch){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
+function lis(a){ return a.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join(''); }
+function icon(name){ return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || '') + '</svg>'; }
+function col(c){ return '--k:' + c.k + ';--p:' + c.p + ';--p2:' + c.p2 + ';--d:' + c.d; }
+function pips(n, max){
+  var h = '';
+  for (var i = 1; i <= max; i++) h += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
+  return '<span class="pips" aria-hidden="true">' + h + '</span>';
+}
+/* tarjeta que se despliega: id, estilo, cabecera (izquierda, texto, derecha) y contenido */
+function acc(o){
+  return '<' + (o.tag || 'section') + ' class="acc big" id="' + o.id + '" style="' + (o.style || '') + '"' + (o.data || '') + '>' +
+    '<h2><button type="button" class="tg head" id="h-' + o.id + '" aria-expanded="false" aria-controls="p-' + o.id + '">' +
+    o.left + '<span class="head-tx">' + o.text + '</span><span class="head-c">' + o.right + CHEV + '</span></button></h2>' +
+    '<div class="panel" id="p-' + o.id + '" role="region" aria-labelledby="h-' + o.id + '"><div class="panel-in"><div class="pbody">' + o.body + '</div></div></div>' +
+    '</' + (o.tag || 'section') + '>';
+}
+function sband(key){
+  var s = SECCIONES[key];
+  return '<header class="band sband" style="' + col(s.c) + '"><div class="band-in"><a class="back" href="#inicio" data-back>' + CHEV_L + 'Inicio</a>' +
+    '<div class="sb-row"><span class="ic">' + icon(s.icon) + '</span><h1>' + esc(s.titulo) + '</h1></div><p>' + esc(s.lead) + '</p></div></header>';
+}
+
+/* ---------- inicio ---------- */
+function renderMenu(){
+  $('#menu').innerHTML = ORDEN_SECCIONES.map(function(key, i){
+    var s = SECCIONES[key];
+    return '<a class="mtile" href="#' + key + '" style="--i:' + i + ';' + col(s.c) + '"><span class="ic">' + icon(s.icon) + '</span>' +
+      '<span class="mt-tx"><span class="mt-n">' + esc(s.nombre) + '</span><span class="mt-d">' + esc(s.desc) + '</span><span class="mt-m">' + esc(s.meta) + '</span></span>' +
+      '<span class="go">' + CHEV_R + '</span></a>';
+  }).join('');
+}
+
+/* ---------- competencias ---------- */
+function compHTML(k, cid, j){
+  var c = COMPS[cid], n = k.niv[cid], max = c.niv.length, lv = c.niv[n - 1], crit = CRIT.indexOf(cid) >= 0, prev = '';
+  var pid = 'cd-' + k.id + '-' + cid;
+  for (var i = 1; i < n; i++) {
+    prev += '<details class="sub-l"><summary><span><b>Nivel ' + i + '.</b> ' + esc(c.niv[i - 1].t) + '</span>' + CHEV + '</summary><ul class="bul">' + lis(c.niv[i - 1].c) + '</ul></details>';
+  }
+  return '<li class="acc comp" id="' + pid + '" style="--j:' + j + '"><button type="button" class="tg crow" id="h-' + pid + '" aria-expanded="false" aria-controls="p-' + pid + '">' +
+    '<span class="cic">' + icon(COMP_ICON[cid]) + '</span>' +
+    '<span class="comp-tx"><span class="comp-n">' + esc(c.n) + '</span><span class="comp-m">' + pips(n, max) + (crit ? '<span class="crit">Crítica</span>' : '') + '</span></span>' +
+    '<span class="lv"><small>Nivel</small><b>' + n + '</b><small>de ' + max + '</small></span></button>' +
+    '<div class="panel" id="p-' + pid + '" role="region" aria-labelledby="h-' + pid + '"><div class="panel-in"><div class="dbody">' +
+    '<div class="blk"><h3>Qué es</h3><p>' + esc(c.q) + '</p></div>' +
+    '<div class="blk"><h3>Cómo aplicarla en el nivel ' + n + '</h3><p class="lvt">' + esc(lv.t) + '</p><ul class="bul">' + lis(lv.c) + '</ul></div>' +
+    (prev ? '<div class="blk"><h3>También incluye los niveles anteriores</h3><div class="prev">' + prev + '</div></div>' : '') +
+    '</div></div></div></li>';
+}
+function renderCompetencias(){
+  var cards = CARGOS.map(function(k, i){
+    var ids = COMP_ORDER.filter(function(c){ return k.niv[c]; });
+    var nc = ids.filter(function(c){ return CRIT.indexOf(c) >= 0; }).length;
+    return acc({ id:k.id, style:'--i:' + i + ';' + col(k.c), data:' data-cargo',
+      left:'<span class="ic">' + icon(k.icon) + '</span>',
+      text:'<span class="head-n">' + esc(k.nombre) + '</span>' + (k.sub ? '<span class="head-s">' + esc(k.sub) + '</span>' : ''),
+      right:'<b>' + ids.length + '</b><small>compet.</small>',
+      body:'<p class="note legend">' + ids.length + ' competencias, ' + nc + ' críticas para el área. El número es el nivel que debe tener este cargo. Toca una para ver qué es y cómo aplicarla.</p>' +
+        '<ul class="list">' + ids.map(function(cid, j){ return compHTML(k, cid, j); }).join('') + '</ul>' +
+        '<p class="note legend">Los niveles se suman: quien debe estar en el nivel 3 también cumple el 1 y el 2.</p>' +
+        '<button type="button" class="close" data-close="' + k.id + '">' + CHEV + 'Cerrar ' + esc(k.corto) + '</button>' });
+  }).join('');
+  $('#v-competencias').innerHTML = sband('competencias') + '<main class="wrap"><div class="accs">' + cards + '</div></main>';
+}
+
+/* ---------- conductas ---------- */
+function renderConductas(){
+  var cards = CONDUCTAS.map(function(c, i){
+    return acc({ id:'conducta-' + (i + 1), style:'--i:' + i + ';' + col(c.c),
+      left:'<span class="num" aria-hidden="true">' + (i + 1) + '</span>',
+      text:'<span class="head-s">Conducta ' + (i + 1) + '</span><span class="head-n">' + esc(c.t) + '</span>',
+      right:icon(c.icon),
+      body:'<ul class="checks wcard">' + c.b.map(function(x){ return '<li><span class="tick" aria-hidden="true">' + icon('check') + '</span><span>' + esc(x) + '</span></li>'; }).join('') + '</ul>' });
+  }).join('');
+  $('#v-conductas').innerHTML = sband('conductas') + '<main class="wrap"><div class="accs">' + cards + '</div>' +
+    '<div class="tie"><span class="cic">' + icon('heart-handshake') + '</span><p>La competencia <b>Orientación al Cliente</b> se demuestra con estas conductas de servicio. <a href="#competencias">Ver competencias</a></p></div>' +
+    '<p class="motto">¡Para brindar bienestar, salud y belleza a nuestros clientes!</p></main>';
+}
+
+/* ---------- pilares ---------- */
+function pilarBody(p){
+  var h = '<p class="lema">' + esc(p.lema) + '</p>';
+  if (p.chip) h += '<p class="chip-k">' + icon('clock') + esc(p.chip) + '</p>';
+  if (p.stat) h += '<div class="stat"><b>' + esc(p.stat.v) + '</b><span>' + esc(p.stat.d) + '</span></div>';
+  if (p.items) h += '<ul class="items">' + p.items.map(function(x){ return '<li><b>' + esc(x.t) + '</b><span>' + esc(x.d) + '</span></li>'; }).join('') + '</ul>';
+  if (p.pasos) h += '<ol class="pasos">' + p.pasos.map(function(x, i){ return '<li><span class="pn">' + (i + 1) + '</span><div><b>Paso ' + (i + 1) + ': ' + esc(x.t) + '</b><span>' + esc(x.d) + '</span></div></li>'; }).join('') + '</ol>';
+  if (p.huecos) {
+    var a = p.huecos.a, b = p.huecos.b;
+    h += '<p class="hq">Diagnóstico de huecos: cuando falta un producto en el anaquel, puede ser</p><div class="split">' +
+      '<div class="case"><b>' + esc(a.t) + '</b><span>' + esc(a.d) + '</span><span class="x">' + esc(a.x) + '</span></div>' +
+      '<div class="case go-on"><b>' + esc(b.t) + '</b><span>' + esc(b.d) + '</span><span class="x">' + esc(b.x) + '</span></div></div>';
+  }
+  if (p.lider) {
+    var L = p.lider;
+    h += '<div class="lider"><p class="lbl">El momento de liderazgo</p><div class="venn">' +
+      '<div class="vc"><b>' + esc(L.a.t) + '</b><span>' + esc(L.a.d) + '</span></div><span class="op" aria-label="más">' + icon('plus') + '</span>' +
+      '<div class="vc"><b>' + esc(L.b.t) + '</b><span>' + esc(L.b.d) + '</span></div></div>' +
+      '<div class="vr"><span class="op" aria-label="igual a">' + icon('equal') + '</span><div><b>' + esc(L.r.t) + '</b><span>' + esc(L.r.d) + '</span></div></div></div>';
+  }
+  if (p.nota) h += '<p class="nota">' + icon('info') + '<span>' + esc(p.nota) + '</span></p>';
+  return h;
+}
+function renderPilares(){
+  var tl = PILARES.map(function(p, i){
+    return acc({ tag:'li', id:'pilar-' + (i + 1), style:'--i:' + i,
+      left:'<span class="pnum" aria-hidden="true">' + (i + 1) + '</span>',
+      text:'<span class="head-n">' + esc(p.nombre) + '</span><span class="head-s">' + esc(p.corto) + '</span>',
+      right:icon(p.icon), body:pilarBody(p) });
+  }).join('');
+  var mx = MATRIZ.map(function(m){
+    var p = PILARES[m.p];
+    return '<li><button type="button" class="mx-row" data-pilar="' + (m.p + 1) + '"><span class="mx-s">«' + esc(m.s) + '»</span>' +
+      '<span class="mx-p"><span class="pb">' + (m.p + 1) + '</span>' + esc(p.nombre) + '</span><span class="mx-go">Ver pilar</span>' +
+      '<span class="mx-c">' + esc(m.c) + '</span></button></li>';
+  }).join('');
+  var motor = MOTOR.map(function(m){
+    return '<li><span class="cic">' + icon(COMP_ICON[m.id]) + '</span><b>' + esc(m.n) + '</b><span>' + esc(m.d) + '</span></li>';
+  }).join('');
+  $('#v-pilares').innerHTML = sband('pilares') + '<main class="wrap">' +
+    '<div class="sh"><p class="lbl">Por qué existen</p><h2>Más que una lista de tareas</h2></div>' +
+    '<div class="vs"><div class="vs-a"><p class="lbl">Mentalidad anterior</p><p>Tareas aisladas, enfoque administrativo, reacción a problemas.</p></div>' +
+    '<div class="vs-b"><p class="lbl">El Estándar Farmatodo</p><p>Un modelo de excelencia operativa: un sistema integrado que fortalece las conductas clave de nuestro equipo.</p></div></div>' +
+    '<p class="obj"><b>Objetivo final:</b> consolidar el liderazgo comercial de Farmatodo en cada tienda mediante una estructura, control y seguimiento continuo.</p>' +
+    '<div class="sh"><p class="lbl">Ciclo continuo de excelencia</p><h2>Los 5 pilares, uno tras otro</h2><p class="note">Toca un pilar para ver qué incluye.</p></div>' +
+    '<ol class="tl accs">' + tl + '</ol><p class="loop">' + icon('refresh-cw') + 'Y el ciclo vuelve a empezar</p>' +
+    '<div class="sh"><p class="lbl">Matriz de diagnóstico</p><h2>¿Qué está fallando en la tienda?</h2><p class="note">Cada síntoma apunta a un pilar. Toca uno para ir a ese pilar.</p></div>' +
+    '<ul class="mx">' + mx + '</ul>' +
+    '<div class="sh"><p class="lbl">El motor humano</p><h2>Conductas clave de éxito</h2><p class="note">Las competencias que hacen funcionar los pilares.</p></div>' +
+    '<ul class="motor">' + motor + '</ul>' +
+    '<div class="cierre"><b>El resultado de la disciplina es la experiencia.</b><p>Los 5 pilares no son un fin en sí mismos. Son las herramientas para garantizar que, cada vez que un cliente cruza nuestras puertas, encuentre el Estándar Farmatodo.</p></div>' +
+    '</main>';
+}
+
+/* ---------- abrir y cerrar ---------- */
+var reduce = false;
+try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+var T = reduce ? 0 : 340;
+
+function parts(a){
+  return [a.querySelector(':scope > .tg, :scope > h2 > .tg'), a.querySelector(':scope > .panel')];
+}
+function setAcc(a, on){
+  var p = parts(a);
+  p[0].setAttribute('aria-expanded', String(on));
+  p[1].classList.toggle('is-open', on);
+  a.classList.toggle('is-open', on);
+}
+function bringIntoView(el, always){
+  setTimeout(function(){
+    var r = el.getBoundingClientRect();
+    if (always || r.top < 0 || r.top > window.innerHeight * 0.45) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' });
+  }, T);
+}
+function setHash(h){
+  try { history.replaceState(null, '', '#' + h); } catch (e) {}
+}
+function toggleAcc(a, force, always){
+  var on = force != null ? force : !a.classList.contains('is-open');
+  if (on) Array.prototype.forEach.call(a.parentNode.children, function(o){ if (o !== a && o.classList.contains('is-open')) setAcc(o, false); });
+  setAcc(a, on);
+  if (a.hasAttribute('data-cargo')) setHash(on ? a.id : 'competencias');
+  if (on) bringIntoView(a, always);
+}
+
+document.addEventListener('click', function(ev){
+  var t = ev.target.closest('.tg, [data-close], [data-pilar], [data-back]');
+  if (!t) return;
+  if (t.hasAttribute('data-back')) {
+    if (cameFromHome) { ev.preventDefault(); try { history.back(); } catch (e) { location.hash = 'inicio'; } }
+    return;
+  }
+  if (t.hasAttribute('data-close')) { toggleAcc(document.getElementById(t.getAttribute('data-close')), false); return; }
+  if (t.hasAttribute('data-pilar')) { toggleAcc(document.getElementById('pilar-' + t.getAttribute('data-pilar')), true, true); return; }
+  toggleAcc(t.closest('.acc'));
+});
+
+/* ---------- pantallas: inicio, competencias (o un cargo), conductas, pilares ---------- */
+var VIEWS = ['inicio', 'competencias', 'conductas', 'pilares'];
+var view = null, cameFromHome = false;
+function route(first){
+  var h = (location.hash || '').replace(/^#/, ''), next = 'inicio', cargo = null;
+  if (VIEWS.indexOf(h) >= 0) next = h;
+  else if (CARGOS.some(function(k){ return k.id === h; })) { next = 'competencias'; cargo = h; }
+  if (!first) cameFromHome = (view === 'inicio' && next !== 'inicio') ? true : (next === 'inicio' ? false : cameFromHome);
+  VIEWS.forEach(function(v){ document.getElementById('v-' + v).hidden = (v !== next); });
+  view = next;
+  if (cargo) {
+    document.body.classList.add('no-anim');
+    toggleAcc(document.getElementById(cargo), true, true);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.remove('no-anim'); }); });
+  } else if (!first) {
+    window.scrollTo(0, 0);
+  }
+}
+window.addEventListener('hashchange', function(){ route(false); });
+
+renderMenu();
+renderCompetencias();
+renderConductas();
+renderPilares();
+route(true);
+})();
+</script>
+</body>
+</html>
